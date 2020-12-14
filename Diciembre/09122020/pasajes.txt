@@ -1,0 +1,157 @@
+Virtual fleet for slim\BUCKLEY	LT12		3h 24m
+Virtual fleet for slim\BUCKLEY	CAMPO LITORAL		1h 15m
+Virtual fleet for slim\BUCKLEY	3J		0m
+Virtual fleet for slim\BUCKLEY	3B		14m
+Virtual fleet for slim\BUCKLEY	4D		11m
+Virtual fleet for slim\BUCKLEY	LT11		9m
+Virtual fleet for slim\BUCKLEY	LT1		10m
+Virtual fleet for slim\BUCKLEY	LT3		16m
+Virtual fleet for slim\BUCKLEY	LT6		5h 52m
+Virtual fleet for slim\BUCKLEY	3C		8m
+Virtual fleet for slim\BUCKLEY	LT2		10m
+Virtual fleet for slim\BUCKLEY	LT4		7m
+Virtual fleet for slim\BUCKLEY	CAMPO PROVIDENCIA		2h 31m
+Virtual fleet for slim\BUCKLEY	PVX8		3h 12m
+Virtual fleet for slim\BUCKLEY	PG		2h 58m
+Virtual fleet for slim\BUCKLEY	PQ		0m
+Virtual fleet for slim\BUCKLEY	PUERTO TALARA		2h 21m
+Virtual fleet for slim\BUCKLEY	Rio Amazonas		18m
+Virtual fleet for slim\BUCKLEY	PV15		20m
+Virtual fleet for slim\BUCKLEY	PV14		11m
+Virtual fleet for slim\CHIMERA	PUERTO TALARA		22h 59m
+Virtual fleet for slim\CHIMERA	Mc Donald		0m
+Virtual fleet for slim\CHIP II	Flotante PN		1h 25m
+Virtual fleet for slim\CHIP II	CAMPO PEA NEGRA		3h 35m
+Virtual fleet for slim\CHIP II	CAMPO LOBITOS		55m
+Virtual fleet for slim\CHIP II	Flotante LO		27m
+Virtual fleet for slim\CHIP II	PN4		17m
+Virtual fleet for slim\CHIP II	DD		8m
+Virtual fleet for slim\CHIP II	PN14		10m
+Virtual fleet for slim\CHIP II	PN11		1m
+Virtual fleet for slim\CHIP II	BB		0m
+Virtual fleet for slim\CHIP II	PN2		5m
+Virtual fleet for slim\CHIP II	LL		1m
+Virtual fleet for slim\CHIP II	TT		9m
+Virtual fleet for slim\CHIP II	A2		13m
+Virtual fleet for slim\CHIP II	R		16m
+Virtual fleet for slim\CHIP II	PN5		34m
+Virtual fleet for slim\CHIP II	NN		11m
+Virtual fleet for slim\CHIP II	GG		1h 57m
+Virtual fleet for slim\CHIP II	M		27m
+Virtual fleet for slim\CHIP II	UU		8m
+Virtual fleet for slim\CHIP II	SS		7m
+Virtual fleet for slim\CHIP II	FF		8m
+Virtual fleet for slim\CHIRIBAY	Rio Amazonas		1h 43m
+Virtual fleet for slim\CHIRIBAY	PUERTO TALARA		18h 48m
+Virtual fleet for slim\CHIRIBAY	Mc Donald		3h 20m
+Virtual fleet for slim\D.VICTOR	PUERTO TALARA		16h 0m
+Virtual fleet for slim\D.VICTOR	Rio Amazonas		6h 59m
+Virtual fleet for slim\DONALD R	Flotante LO		8h 15m
+Virtual fleet for slim\DONALD R	CAMPO LOBITOS		5h 55m
+Virtual fleet for slim\DONALD R	LO8		6m
+Virtual fleet for slim\DONALD R	H		5m
+Virtual fleet for slim\DONALD R	LO9		7m
+Virtual fleet for slim\DONALD R	ZZ		40m
+Virtual fleet for slim\DONALD R	CC		3m
+Virtual fleet for slim\DONALD R	LO10		13m
+Virtual fleet for slim\DONALD R	LO13		19m
+Virtual fleet for slim\DONALD R	LO18		23m
+Virtual fleet for slim\DONALD R	U		2m
+Virtual fleet for slim\DONALD R	LO16		46m
+Virtual fleet for slim\DONALD R	LO19		1h 5m
+Virtual fleet for slim\DONALD R	LO14		31m
+Virtual fleet for slim\ELIZABET	PUERTO TALARA		56m
+Virtual fleet for slim\ELIZABET	Mc Donald		22h 59m
+Virtual fleet for slim\HIPPO	PUERTO TALARA		23h 52m
+Virtual fleet for slim\IRIS	Flotante PN		8h 23m
+Virtual fleet for slim\IRIS	CAMPO PEA NEGRA		7h 3m
+Virtual fleet for slim\IRIS	HH		17m
+Virtual fleet for slim\IRIS	Z		21m
+Virtual fleet for slim\IRIS	KK		1h 14m
+Virtual fleet for slim\IRIS	OO		1h 19m
+Virtual fleet for slim\IRIS	PN8		50m
+Virtual fleet for slim\IRIS	PN3		34m
+Virtual fleet for slim\IRIS	TT		12m
+Virtual fleet for slim\IRIS	M		10m
+Virtual fleet for slim\IRIS	PN5		12m
+Virtual fleet for slim\IRIS	R		9m
+Virtual fleet for slim\IRIS	NN		31m
+Virtual fleet for slim\IRIS	GG		8m
+Virtual fleet for slim\IRIS	DD		20m
+Virtual fleet for slim\IRIS	BB		8m
+Virtual fleet for slim\IRIS	PN4		6m
+Virtual fleet for slim\IRIS	PN7		22m
+Virtual fleet for slim\IRIS	PN2		33m
+Virtual fleet for slim\IRIS	LL		7m
+Virtual fleet for slim\IRIS	PN1		26m
+Virtual fleet for slim\IRIS	PN9		17m
+Virtual fleet for slim\KELLEY	CAMPO SAN PEDRO		13h 59m
+Virtual fleet for slim\KELLEY	SP1-A		2h 0m
+Virtual fleet for slim\KELLEY	SP1		4h 59m
+Virtual fleet for slim\KELLEY	ES1		2h 0m
+Virtual fleet for slim\MISS D	Flotante LO		15h 1m
+Virtual fleet for slim\MISS D	CAMPO LOBITOS		1h 0m
+Virtual fleet for slim\MISS D	LO3		1h 0m
+Virtual fleet for slim\MISS D	LO6		59m
+Virtual fleet for slim\MISS D	LO8		2h 0m
+Virtual fleet for slim\MR MATT	PUERTO TALARA		23h 49m
+Virtual fleet for slim\MR MATT	Mc Donald		4m
+Virtual fleet for slim\MR MATT	Rio Amazonas		3m
+Virtual fleet for slim\NEPTUNO	PUERTO TALARA		22h 11m
+Virtual fleet for slim\NEPTUNO	CAMPO LOBITOS		40m
+Virtual fleet for slim\NEPTUNO	LO19		1m
+Virtual fleet for slim\NEPTUNO	Flotante LO		45m
+Virtual fleet for slim\NEPTUNO	Mc Donald		14m
+Virtual fleet for slim\OLYMPIC	PUERTO TALARA		13h 7m
+Virtual fleet for slim\OLYMPIC	Mc Donald		22m
+Virtual fleet for slim\OLYMPIC	CAMPO LOBITOS		2h 59m
+Virtual fleet for slim\OLYMPIC	LO18		0m
+Virtual fleet for slim\OLYMPIC	LO13		9m
+Virtual fleet for slim\OLYMPIC	LO4		0m
+Virtual fleet for slim\OLYMPIC	LO3		8m
+Virtual fleet for slim\OLYMPIC	Flotante LO		28m
+Virtual fleet for slim\OLYMPIC	CAMPO PEA NEGRA		3h 54m
+Virtual fleet for slim\OLYMPIC	PN2		43m
+Virtual fleet for slim\OLYMPIC	Flotante PN		25m
+Virtual fleet for slim\OLYMPIC	Z		21m
+Virtual fleet for slim\OLYMPIC	R		3m
+Virtual fleet for slim\OLYMPIC	PN4		5m
+Virtual fleet for slim\OLYMPIC	PN9		15m
+Virtual fleet for slim\OLYMPIC	PN8		20m
+Virtual fleet for slim\OLYMPIC	KK		15m
+Virtual fleet for slim\OLYMPIC	BB		0m
+Virtual fleet for slim\OLYMPIC	PN11		0m
+Virtual fleet for slim\OLYMPIC	PN14		5m
+Virtual fleet for slim\OLYMPIC	NN		4m
+Virtual fleet for slim\PARI„AS	PUERTO TALARA		23h 22m
+Virtual fleet for slim\PARI„AS	Rio Amazonas		32m
+Virtual fleet for slim\ROSLYN	PUERTO TALARA		22h 51m
+Virtual fleet for slim\ROSLYN	Tortuga		6m
+Virtual fleet for slim\ROSLYN	Rio Amazonas		3m
+Virtual fleet for slim\ROSLYN	CAMPO PROVIDENCIA		43m
+Virtual fleet for slim\ROSLYN	PG		4m
+Virtual fleet for slim\ROSLYN	CAMPO LITORAL		2m
+Virtual fleet for slim\SHEYLA	PG		6h 40m
+Virtual fleet for slim\SHEYLA	CAMPO PROVIDENCIA		2h 42m
+Virtual fleet for slim\SHEYLA	PUERTO TALARA		1h 28m
+Virtual fleet for slim\SHEYLA	Rio Amazonas		18m
+Virtual fleet for slim\SHEYLA	PV14		22m
+Virtual fleet for slim\SHEYLA	PVX8		14m
+Virtual fleet for slim\SHEYLA	PV15		18m
+Virtual fleet for slim\SHEYLA	CAMPO LITORAL		2h 9m
+Virtual fleet for slim\SHEYLA	LT12		3h 17m
+Virtual fleet for slim\SHEYLA	3B		1h 4m
+Virtual fleet for slim\SHEYLA	LT11		3h 22m
+Virtual fleet for slim\SHEYLA	LT3		33m
+Virtual fleet for slim\SHEYLA	LT6		21m
+Virtual fleet for slim\SHEYLA	4D		13m
+Virtual fleet for slim\SHEYLA	3J		3m
+Virtual fleet for slim\SHEYLA	LT2		15m
+Virtual fleet for slim\SHEYLA	LT4		10m
+Virtual fleet for slim\SHEYLA	LT1		16m
+Virtual fleet for slim\SKOOKUM	PUERTO TALARA		19h 31m
+Virtual fleet for slim\SKOOKUM	Rio Amazonas		1h 0m
+Virtual fleet for slim\SOPHIA C	PUERTO TALARA		22h 59m
+Virtual fleet for slim\ZULUF	PUERTO TALARA		22h 10m
+Virtual fleet for slim\ZULUF	Rio Amazonas		3m
+Virtual fleet for slim\ZULUF	Mc Donald		1h 38m
