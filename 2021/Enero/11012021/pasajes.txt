@@ -1,0 +1,187 @@
+Virtual fleet for JAMES\BUCKLEY	PUERTO TALARA		23h 53m
+Virtual fleet for JAMES\CHIMERA	PUERTO TALARA		16h 0m
+Virtual fleet for JAMES\CHIMERA	Rio Amazonas		6h 59m
+Virtual fleet for JAMES\CHIP II	Flotante PN		3h 15m
+Virtual fleet for JAMES\CHIP II	CAMPO PEA NEGRA		2h 1m
+Virtual fleet for JAMES\CHIP II	GG		2h 44m
+Virtual fleet for JAMES\CHIP II	DD		20m
+Virtual fleet for JAMES\CHIP II	PN11		9m
+Virtual fleet for JAMES\CHIP II	NN		27m
+Virtual fleet for JAMES\CHIP II	PN14		8m
+Virtual fleet for JAMES\CHIP II	UU		9m
+Virtual fleet for JAMES\CHIP II	PN5		9m
+Virtual fleet for JAMES\CHIP II	SS		8m
+Virtual fleet for JAMES\CHIP II	FF		7m
+Virtual fleet for JAMES\CHIP II	M		9m
+Virtual fleet for JAMES\CHIP II	R		14m
+Virtual fleet for JAMES\CHIP II	A2		9m
+Virtual fleet for JAMES\CHIP II	TT		15m
+Virtual fleet for JAMES\CHIP II	PN4		6m
+Virtual fleet for JAMES\CHIRIBAY	CAMPO LOBITOS		13h 5m
+Virtual fleet for JAMES\CHIRIBAY	LO9		8h 38m
+Virtual fleet for JAMES\CHIRIBAY	CAMPO PEA NEGRA		2h 6m
+Virtual fleet for JAMES\CHIRIBAY	Flotante PN		3m
+Virtual fleet for JAMES\D.VICTOR	CAMPO LOBITOS		6h 9m
+Virtual fleet for JAMES\D.VICTOR	Flotante LO		10m
+Virtual fleet for JAMES\D.VICTOR	PUERTO TALARA		5h 6m
+Virtual fleet for JAMES\D.VICTOR	CAMPO PROVIDENCIA		6h 0m
+Virtual fleet for JAMES\D.VICTOR	PG		1h 0m
+Virtual fleet for JAMES\D.VICTOR	CAMPO PEA NEGRA		5h 10m
+Virtual fleet for JAMES\DONALD R	Flotante LO		6h 45m
+Virtual fleet for JAMES\DONALD R	CAMPO LOBITOS		5h 48m
+Virtual fleet for JAMES\DONALD R	A8		1m
+Virtual fleet for JAMES\DONALD R	LO16		58m
+Virtual fleet for JAMES\DONALD R	LO13		1h 2m
+Virtual fleet for JAMES\DONALD R	LO18		11m
+Virtual fleet for JAMES\DONALD R	LO14		32m
+Virtual fleet for JAMES\DONALD R	U		3m
+Virtual fleet for JAMES\DONALD R	LO8		2h 51m
+Virtual fleet for JAMES\DONALD R	H		6m
+Virtual fleet for JAMES\DONALD R	LO9		20m
+Virtual fleet for JAMES\DONALD R	ZZ		1h 36m
+Virtual fleet for JAMES\DONALD R	LO10		44m
+Virtual fleet for JAMES\DONALD R	LO6		16m
+Virtual fleet for JAMES\DONALD R	LO7		26m
+Virtual fleet for JAMES\DONALD R	LO19		1m
+Virtual fleet for JAMES\ELIZABET	CAMPO LOBITOS		4h 14m
+Virtual fleet for JAMES\ELIZABET	Flotante LO		11m
+Virtual fleet for JAMES\ELIZABET	PUERTO TALARA		3h 51m
+Virtual fleet for JAMES\ELIZABET	CAMPO PROVIDENCIA		5h 29m
+Virtual fleet for JAMES\ELIZABET	PG		10h 11m
+Virtual fleet for JAMES\HIPPO	Mc Donald		23h 53m
+Virtual fleet for JAMES\IRIS	GG		19m
+Virtual fleet for JAMES\IRIS	CAMPO PEA NEGRA		5h 46m
+Virtual fleet for JAMES\IRIS	NN		12m
+Virtual fleet for JAMES\IRIS	R		7m
+Virtual fleet for JAMES\IRIS	Z		27m
+Virtual fleet for JAMES\IRIS	KK		28m
+Virtual fleet for JAMES\IRIS	PN7		30m
+Virtual fleet for JAMES\IRIS	OO		29m
+Virtual fleet for JAMES\IRIS	PN8		28m
+Virtual fleet for JAMES\IRIS	PN3		55m
+Virtual fleet for JAMES\IRIS	PN2		17m
+Virtual fleet for JAMES\IRIS	Flotante PN		10h 27m
+Virtual fleet for JAMES\IRIS	PN5		11m
+Virtual fleet for JAMES\IRIS	DD		14m
+Virtual fleet for JAMES\IRIS	PN4		7m
+Virtual fleet for JAMES\IRIS	HH		1h 57m
+Virtual fleet for JAMES\IRIS	LL		18m
+Virtual fleet for JAMES\IRIS	PN9		8m
+Virtual fleet for JAMES\IRIS	PN1		16m
+Virtual fleet for JAMES\IRIS	BB		9m
+Virtual fleet for JAMES\KELLEY	SP1-A		6h 0m
+Virtual fleet for JAMES\KELLEY	CAMPO SAN PEDRO		12h 59m
+Virtual fleet for JAMES\KELLEY	SP1		4h 0m
+Virtual fleet for JAMES\MISS D	Flotante LO		14h 49m
+Virtual fleet for JAMES\MISS D	CAMPO LOBITOS		4h 45m
+Virtual fleet for JAMES\MISS D	LO9		9m
+Virtual fleet for JAMES\MISS D	LO7		13m
+Virtual fleet for JAMES\MISS D	LO4		33m
+Virtual fleet for JAMES\MISS D	LO6		11m
+Virtual fleet for JAMES\MISS D	LO16		3m
+Virtual fleet for JAMES\MISS D	LO13		19m
+Virtual fleet for JAMES\MISS D	LO14		4m
+Virtual fleet for JAMES\MISS D	LO3		6m
+Virtual fleet for JAMES\MISS D	CC		27m
+Virtual fleet for JAMES\MISS D	LO8		5m
+Virtual fleet for JAMES\MISS D	H		1h 49m
+Virtual fleet for JAMES\MR MATT	PUERTO TALARA		23h 14m
+Virtual fleet for JAMES\MR MATT	Mc Donald		38m
+Virtual fleet for JAMES\MR MATT	Rio Amazonas		4m
+Virtual fleet for JAMES\NEPTUNO	PUERTO TALARA		15h 59m
+Virtual fleet for JAMES\NEPTUNO	Rio Amazonas		26m
+Virtual fleet for JAMES\NEPTUNO	CAMPO LOBITOS		1h 37m
+Virtual fleet for JAMES\NEPTUNO	PP		1m
+Virtual fleet for JAMES\NEPTUNO	Flotante LO		9m
+Virtual fleet for JAMES\NEPTUNO	CAMPO PEA NEGRA		28m
+Virtual fleet for JAMES\NEPTUNO	Flotante PN		15m
+Virtual fleet for JAMES\NEPTUNO	ZZ		1m
+Virtual fleet for JAMES\NEPTUNO	LO19		0m
+Virtual fleet for JAMES\NEPTUNO	Mc Donald		1h 10m
+Virtual fleet for JAMES\NEPTUNO	CAMPO PROVIDENCIA		1h 16m
+Virtual fleet for JAMES\NEPTUNO	PG		10m
+Virtual fleet for JAMES\NEPTUNO	PV15		6m
+Virtual fleet for JAMES\NEPTUNO	PV14		5m
+Virtual fleet for JAMES\NEPTUNO	PVX8		5m
+Virtual fleet for JAMES\NEPTUNO	CAMPO LITORAL		40m
+Virtual fleet for JAMES\NEPTUNO	LT12		32m
+Virtual fleet for JAMES\NEPTUNO	LT2		21m
+Virtual fleet for JAMES\NEPTUNO	LT1		7m
+Virtual fleet for JAMES\NEPTUNO	LT3		4m
+Virtual fleet for JAMES\NEPTUNO	4D		6m
+Virtual fleet for JAMES\NEPTUNO	3B		5m
+Virtual fleet for JAMES\NEPTUNO	PQ		0m
+Virtual fleet for JAMES\OLYMPIC	PUERTO TALARA		12h 21m
+Virtual fleet for JAMES\OLYMPIC	Rio Amazonas		28m
+Virtual fleet for JAMES\OLYMPIC	CAMPO PROVIDENCIA		36m
+Virtual fleet for JAMES\OLYMPIC	PQ		0m
+Virtual fleet for JAMES\OLYMPIC	PV14		0m
+Virtual fleet for JAMES\OLYMPIC	CAMPO LOBITOS		2h 1m
+Virtual fleet for JAMES\OLYMPIC	LO13		9m
+Virtual fleet for JAMES\OLYMPIC	Flotante LO		27m
+Virtual fleet for JAMES\OLYMPIC	CAMPO PEA NEGRA		1h 4m
+Virtual fleet for JAMES\OLYMPIC	PN7		9m
+Virtual fleet for JAMES\OLYMPIC	LL		5m
+Virtual fleet for JAMES\OLYMPIC	Flotante PN		6h 17m
+Virtual fleet for JAMES\OLYMPIC	Z		8m
+Virtual fleet for JAMES\OLYMPIC	LO18		0m
+Virtual fleet for JAMES\PARI„AS	PUERTO TALARA		15h 8m
+Virtual fleet for JAMES\PARI„AS	Mc Donald		1h 18m
+Virtual fleet for JAMES\PARI„AS	Rio Amazonas		37m
+Virtual fleet for JAMES\PARI„AS	CAMPO LOBITOS		1h 28m
+Virtual fleet for JAMES\PARI„AS	LO13		3m
+Virtual fleet for JAMES\PARI„AS	U		0m
+Virtual fleet for JAMES\PARI„AS	Flotante LO		1h 34m
+Virtual fleet for JAMES\PARI„AS	CAMPO PEA NEGRA		1h 9m
+Virtual fleet for JAMES\PARI„AS	PN9		12m
+Virtual fleet for JAMES\PARI„AS	PN3		10m
+Virtual fleet for JAMES\PARI„AS	PN7		14m
+Virtual fleet for JAMES\PARI„AS	Flotante PN		1h 41m
+Virtual fleet for JAMES\PARI„AS	LL		13m
+Virtual fleet for JAMES\ROSLYN	CAMPO LITORAL		3h 6m
+Virtual fleet for JAMES\ROSLYN	LT12		1h 36m
+Virtual fleet for JAMES\ROSLYN	3J		2h 51m
+Virtual fleet for JAMES\ROSLYN	3B		50m
+Virtual fleet for JAMES\ROSLYN	4D		28m
+Virtual fleet for JAMES\ROSLYN	LT2		1h 19m
+Virtual fleet for JAMES\ROSLYN	LT1		34m
+Virtual fleet for JAMES\ROSLYN	LT6		3h 33m
+Virtual fleet for JAMES\ROSLYN	LT11		5m
+Virtual fleet for JAMES\ROSLYN	LT3		1h 4m
+Virtual fleet for JAMES\ROSLYN	LT4		11m
+Virtual fleet for JAMES\ROSLYN	CAMPO PROVIDENCIA		3h 29m
+Virtual fleet for JAMES\ROSLYN	PV15		1h 40m
+Virtual fleet for JAMES\ROSLYN	PG		10m
+Virtual fleet for JAMES\ROSLYN	PUERTO TALARA		2h 10m
+Virtual fleet for JAMES\ROSLYN	Rio Amazonas		27m
+Virtual fleet for JAMES\ROSLYN	PV14		13m
+Virtual fleet for JAMES\SHEYLA	CAMPO PROVIDENCIA		3h 0m
+Virtual fleet for JAMES\SHEYLA	PG		7h 57m
+Virtual fleet for JAMES\SHEYLA	PUERTO TALARA		2h 23m
+Virtual fleet for JAMES\SHEYLA	Rio Amazonas		28m
+Virtual fleet for JAMES\SHEYLA	PV14		31m
+Virtual fleet for JAMES\SHEYLA	PVX8		18m
+Virtual fleet for JAMES\SHEYLA	PV15		35m
+Virtual fleet for JAMES\SHEYLA	CAMPO LITORAL		1h 59m
+Virtual fleet for JAMES\SHEYLA	LT12		1h 20m
+Virtual fleet for JAMES\SHEYLA	LT2		1h 48m
+Virtual fleet for JAMES\SHEYLA	LT1		41m
+Virtual fleet for JAMES\SHEYLA	3J		4m
+Virtual fleet for JAMES\SHEYLA	3B		22m
+Virtual fleet for JAMES\SHEYLA	LT11		12m
+Virtual fleet for JAMES\SHEYLA	LT3		21m
+Virtual fleet for JAMES\SHEYLA	4D		20m
+Virtual fleet for JAMES\SHEYLA	LT6		2m
+Virtual fleet for JAMES\SKOOKUM	Rio Amazonas		13h 0m
+Virtual fleet for JAMES\SKOOKUM	PUERTO TALARA		8h 59m
+Virtual fleet for JAMES\SOPHIA C	Rio Amazonas		19h 0m
+Virtual fleet for JAMES\SOPHIA C	PUERTO TALARA		3h 59m
+Virtual fleet for JAMES\ZULUF	CAMPO LITORAL		10h 34m
+Virtual fleet for JAMES\ZULUF	CAMPO PROVIDENCIA		2h 42m
+Virtual fleet for JAMES\ZULUF	PBL1		2m
+Virtual fleet for JAMES\ZULUF	PUERTO TALARA		40m
+Virtual fleet for JAMES\ZULUF	CAMPO LOBITOS		1h 27m
+Virtual fleet for JAMES\ZULUF	PP		1m
+Virtual fleet for JAMES\ZULUF	CAMPO PEA NEGRA		2h 34m
+Virtual fleet for JAMES\ZULUF	NN		2m
+Virtual fleet for JAMES\ZULUF	DD		1m
