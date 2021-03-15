@@ -1,0 +1,3420 @@
+
+<html>
+
+<head>
+  <title>Internet Tracking System</title>
+    
+      
+          <meta http-equiv="Content-Type" content="application/vnd.ms-excel">
+          <meta http-equiv="Charset" content="UTF-8">
+
+          <style type="text/css">/******************************************************************************************/
+/* styles.css                                                                             */
+/* basic CSS for GetPosition                                                              */
+/******************************************************************************************/
+/* Vadim Melnikov                                                                         */
+/******************************************************************************************/
+
+
+
+A
+{
+	color:#333333;
+}
+
+.ml TD 
+{
+	font-family:Calibri, Verdana, Arial, Tahoma, sans-serif;
+	height:25px;
+	font-size:x-small;
+	padding-top:20px;
+}
+
+.ml TH
+{
+	font-family:Calibri, Verdana, Arial, Tahoma, sans-serif;
+	height:25px;
+	color:White;
+	background: url(/images/blue_ptrn.gif);	
+	width:400px;
+}
+
+.vf_unitName	
+{
+	font-weight:bold;
+}
+
+.vf_already
+{
+	font-style:italic;
+}
+
+/*== Form elements Begin ========*/
+.InputElementPayUse
+{
+	background-color:transparent;
+	border:0;
+}
+
+SELECT
+{
+	font: normal x-small Calibri, Verdana, Arial, Tahoma, sans-serif;
+	background-color: white; /*#BAFCC6;*/
+}
+/* TEXTAREA and INPUT (commonly for input type=text) */
+INPUT, TEXTAREA
+{
+	border: 1px solid #CECECE;
+	/* 12px instead of x-small because INPUT font not resising right after view text size changed */
+	font: 12px Calibri, Verdana, Arial, Tahoma, sans-serif;
+	background-color: white
+}
+/* INPUT for type=submit especially */
+INPUT.s, BUTTON
+{
+	background-image: url(/Images/Menu/btn_ptrn.png);
+	/*filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#fffce684, endColorstr=#fffcce04);*/
+	
+	/*border: 1px solid;*/
+	font: x-small Calibri, Verdana, Arial, Tahoma, sans-serif;
+	
+	padding-left: 5px;
+	padding-right: 5px;
+}
+INPUT.s, BUTTON/* disabled for IE <= 5.0 by comment bug cause overflow:visible don't work and all buttons have width=1px */{
+	/*width: 1px;*/ /*disabled by Mikhail Shutov => work OK in firefox & opera & iexplorer*/
+	overflow: visible;
+	padding-left: 20px;
+	padding-right: 20px;
+}
+/* No border INPUT for type=radio, type=checkbox and other specific cases */
+INPUT.chb
+{
+	border: 0;
+	background-color: transparent;
+}
+/*== Form elements End ==========*/
+
+/*== Frame and Frameset elements Begin ========*/
+/* Frames. not so good as we want but at least something... */
+FRAME
+{
+	border-top: 1px solid #046A86;
+	border-left: 1px solid #046A86;
+	margin:0; padding:0;
+	
+}
+.FRAME_NB
+{
+	border-top: 0px;
+	border-left: 0px solid;
+	margin:0; padding:0;
+}
+FRAMESET
+{
+	border: 0;
+	margin:0; padding:0;
+}
+/*== Frame and Frameset elements End ==========*/
+
+/* Body scrollbar */
+BODY
+{
+	scrollbar-arrow-color: #666666;
+	scrollbar-base-color: #F7F7F7;
+	scrollbar-darkshadow-color: #AAAAAA;
+	scrollbar-3dlight-color: #666666;
+	scrollbar-shadow-color: #666666;
+	scrollbar-highlight-color: #F7F7F7;
+	
+	overflow: auto;
+	background-color:White;
+}
+.margined
+{
+	margin-left:10px;
+}
+/* HR tag */
+.hr
+{
+	height: 1px;
+	background-color: #046A86;
+	width: 50%;
+	margin-top: 2px;
+	margin-bottom: 2px;
+}
+/*== News Begin ========*/
+/* base */
+.news
+{
+	font: x-small Calibri, Verdana, Arial, Tahoma, sans-serif;
+}
+/* header */
+.news TH
+{
+	background-color: #FFFF88;
+}
+/* date */
+.news .date
+{
+	font-family: Calibri, Tahoma, sans-serif;
+	/*color: #27B095;*/
+	background-color: #FFFF88;
+}
+/* title and link */
+.news .title
+{
+	font-family: Calibri, Verdana, Arial, Tahoma, sans-serif;
+	background-color: white;
+	/*font-weight: bold;*/
+}
+/* text */
+.news .text
+{
+	background-color:white;
+}
+/* separator */
+.news .separator
+{
+	background-color: #FFCC00;
+	height: 1px;
+}
+/* archive line */
+.news .arc
+{
+	font: normal x-small  Calibri, Arial, Tahoma, sans-serif;
+	background-color:white;
+}
+/* current page number in archive line */
+.news .arc .current
+{
+	font-weight: bold;
+	font-size: x-small;
+	color: black;
+}
+/*== News End ==========*/
+
+/*== Tree Begin ========*/
+/* top static element */
+.tree
+{
+	overflow-x:hidden;
+	}
+.tree A
+{
+	font: x-small Calibri, Verdana, Arial, Tahoma, sans-serif;
+	text-decoration: none;
+}
+/* basic div element of tree */
+.tree DIV
+{
+	font: x-small Calibri, Verdana, Arial, Tahoma, sans-serif;
+	padding-top: 1px;
+	padding-bottom: 1px;
+}
+/* tree-branches DIV-container (must be invisible) */
+.tree .nvis
+{
+	padding: 0;
+	margin: 0;
+	border: 0;
+}
+/* span cursor mustn't be handed cause not clickable */
+.tree SPAN
+{
+	cursor: default;
+}
+/* tree element hover class A:hover like */
+.tree .selected
+{
+	font: x-small Calibri, Verdana, Arial, Tahoma, sans-serif;
+	border: 1px solid #777;
+	background-color: #E2F3FC;
+	padding: 0px;
+	cursor: hand;
+}
+/* selected user anchor */
+.tree A#current
+{
+	color: #004488;
+	
+	
+	font-weight: bold ;
+}
+/* found user anchor */
+.tree .found
+{
+	font-weight: bold;
+	/*border-left: 3px solid red;*/
+	background: #0f0;
+	cursor: hand;
+}
+/*== Tree End ==========*/
+
+/*== Menu Begin ========*/
+.menu
+{
+	font: x-small Calibri, Verdana, Arial, Tahoma, sans-serif;
+	margin-left: 0px;
+	margin-top: 1px;
+}
+
+
+.menu .operations_link
+{
+
+}
+.menu .operations_sublink
+{
+
+}
+.menu .operations_sublink:over
+{
+
+}	
+
+.menu .margined
+{
+
+}
+	
+.menu A
+{
+	text-decoration: none;
+}
+
+.menu A:hover
+{
+
+}
+
+.menu .head
+{
+	font-size: small;
+	padding: 2px;
+	font-weight: bold;
+	text-align: center;
+	margin-bottom: 4px;
+}
+.menu DIV
+{
+	font: x-small Calibri, Verdana, Arial, Tahoma, sans-serif;
+	padding: 1px;
+}
+/* invisible div for work needs only */
+.menu .nvis
+{
+	padding: 0;
+	margin: 0;
+}
+.menu .nvis div
+{
+	margin-left: 20px;
+}
+
+.menu .title
+{
+	font: xx-small  Verdana, Arial, Tahoma, sans-serif;
+	
+	padding-left:5px;
+    font-weight:bold;
+	color:#EEEEEE;
+	background:url(/images/title.png);
+	height: 25px;
+	vertical-align:bottom;
+	border-top: 1px solid #046A86;
+	margin-left:0px;
+}
+.menu .title_selected
+{
+	font-size: x-small;
+	border: 1px solid #777;
+	background-color: #E4E4E4;
+	
+	cursor: hand;
+}
+.menu .selected
+{
+	border: 1px solid #777;
+	background-color: #E2F3FC;
+	cursor: hand;
+}
+.menu .separator
+{
+	overflow: hidden;
+	height: 4px;
+}
+
+.menu .separator2
+{
+	overflow: hidden;
+	height: 1px;
+	background-color:#CCCCCC;
+}
+
+/* selected position */
+.menu .clickedAnchor
+{
+    color: #004488;
+	font-weight: bold;
+}
+/*== Menu End ==========*/
+
+/*== Content Begin ========*/
+.content
+{
+	font: x-small Calibri, Verdana, Arial, Tahoma, sans-serif;
+}
+/* for striped needs */
+.content .stripe
+{
+	background-color: #DAFFDA;
+}
+.content .selected
+{
+	font-weight: bold;
+}
+.content .selectedRow
+{
+	background-color: #E4E4E4;
+}
+.content TH
+{
+	background-color: #BAFCC6;
+	text-align: center;
+}
+.content .title
+{
+	font-size: x-small;
+	height:25px;
+	color:White;
+	background: url(/images/blue_ptrn.gif);
+}
+/* addres block */
+.content .address
+{
+	text-align: center;
+	color: blue;
+}
+/* description block */
+.content .description
+{
+	font-size: small;
+	font-style: italic;
+	text-align: center;
+	font-weight: bold;
+}
+.content .separator
+{
+	background-color: #27B095;
+	height: 1px;
+}
+.content .separator-light
+{
+	background-color: #BAFCC6;
+	height: 1px;
+}
+/* height spacer TD */
+.content .hspacer
+{
+	height: 5px;
+}
+/* error message title */
+.content .errTitle
+{
+	font-size: small;
+	font-weight: bold;
+	color: white;
+	background-color: red;
+	text-align: center;
+}
+/* error message */
+.content .errMessage
+{
+	font-size: small;
+	color: red;
+}
+/*== Content End ==========*/
+
+/*== Input/Output Begin ==========*/
+.inout, .inout TD
+{  
+	padding:3px;
+	font: xx-small Verdana,Arial,Tahoma,Sans-Serif;
+}
+.inout .title
+{
+	
+	height:25px;
+	background-image: url(/Images/wrprtHdr_ptrn.gif) ;
+}
+
+.inout .odd
+{
+	background-color:#F0F0F0;
+}
+/* state = 1 must be colored (red for example) */
+.inout .stateOne
+{
+	color: red;
+	font-weight: bold;
+}
+.inout .errMessage
+{
+	color: red;
+	font-weight: bold;
+}
+
+/*== Input/Ounput End ============*/
+/*== Fleet Manager Report =====*/
+.miniReport{
+	border: 1px solid black;
+	font-size: 10pt;
+	min-width: 30em;
+	margin: 2px 2px 2px 2px
+}
+.miniReport .caption{
+	background-color: Silver;
+	font-weight: bold;
+}
+.miniReport .capt2{
+	background-color: Silver;
+}
+.miniReport .odd td{
+	background-color: #F1F1F1;
+}
+.RepGroup{
+
+}
+.rg_caption td{
+	border-bottom:2px solid black;
+	font-size: 14pt;
+	font-weight:bold;
+}
+/*== Fleet Manager Report End=====*/
+/*== Info Begin ========*/
+.yellow-info
+{
+	margin-top:10px;
+	margin-bottom:10px;
+	background: url('/Images/bar_yel.png') no-repeat;
+	font: x-small Calibri, Verdana, Arial, Tahoma, sans-serif;
+	border: solid 1px #DCDC41;
+	width:100%;
+}
+
+.yellow-info .normal
+{
+	font-weight:normal;
+}
+
+.yellow-info .selected
+{
+	font-weight:bold;
+}
+
+
+.info
+{
+	font: x-small Calibri, Verdana, Arial, Tahoma, sans-serif;
+}
+
+.info .RowOdd
+{
+	background-color:White;
+}
+
+.info .RowPair
+{
+	background-color:#DDF0F7;	
+}
+
+
+.info TH
+{
+	background-image:url("/Images/blue_g_b_ptrn.gif");
+	background-repeat:repeat-x;
+	background-color: #046480;
+	text-align: center;
+	color:white;
+}
+.info TD
+{
+	background-color:White;
+}
+.info .title
+{
+	color:White;
+	font-size: x-small;
+	font-weight: bold;
+	
+	vertical-align:top;
+	background-image: url("/Images/blue_g_ptrn.gif");
+}
+
+
+.info .separator
+{
+	background-color: #046480;
+	height: 1px;
+}
+/* table-container for info table to make smart borders for it */
+.info_border
+{
+	background-color: #046784;
+	margin-left: 3px;
+}
+/*== Info End ==========*/
+
+/*== Permissions Begin ========*/
+.permissions
+{
+	font: x-small Calibri, Verdana, Arial, Tahoma, sans-serif;
+}
+/* pages selection */
+.permissions .arc
+{
+	font: x-small Calibri, Verdana, Arial, Tahoma, sans-serif;
+}
+/* selected page */
+.permissions .arc .current
+{
+	font: x-small Calibri, Verdana, Arial, Tahoma, sans-serif;
+	font-weight: bold;
+}
+.permissions TH
+{
+	background-color: white;
+	text-align: center;
+}
+.permissions TD
+{
+	background-color: white;
+}
+.permissions .header_start
+{
+	border-top: 1px solid #27B095;
+}
+.permissions .header_end
+{
+	border-bottom: 1px solid #27B095;
+}
+/* INPUT type=checkbox or type=radio */
+.permissions .chb
+{
+	background-color: white;
+	/*disabled. because don't work correct in FF*/
+	/*margin-top: -3px;
+	margin-bottom: -3px;*/
+}
+/* title cell */
+.permissions .title TD, .permissions .title
+{
+	/*background-color: #BAFCC6 !important;*/
+
+	font: xx-small  Verdana, Arial, Tahoma, sans-serif;
+    font-weight:bold;
+	color:#EEEEEE;
+	background:url(/images/blue_ptrn.gif);
+	height: 25px;
+	vertical-align:top;
+	border-top: 1px solid #046A86;
+}
+/* INPUT type=checkbox or type=radio in title */
+.permissions .title .chb
+{
+	background-color: #BAFCC6;
+}
+/* table-container for permissions table to make smart borders for it */
+.permissions_border
+{
+	background-color: #046A86;
+}
+/*== Permissions End ==========*/
+
+/*== Header Begin ========*/
+.header
+{
+	font: bold x-small Calibri, Verdana, Arial, Tahoma, sans-serif;
+	background-color: white;
+}
+/* provider name (upper-left corner) */
+.header .title
+{
+	font-size: large;
+}
+/* logo (upper-right corner) */
+.header .logo
+{
+	text-align: right;
+	width: 30%;
+}
+/* subtitle placed under the main title (bottom-left corner) */
+.header .subtitle
+{
+	font-size: small;
+}
+/* (date & time placed bottom-right corner) */
+.header .date_time
+{
+	text-align: right;
+}
+/*== Header End ==========*/
+
+/*== Map Begin ========*/
+.map, .map .messages .chb
+{
+	background-color: #FFFFC4;
+	border-collapse: collapse;
+}
+/* messages instead of map: title */
+.map .messages .title
+{
+	background-color: #BAFCC6;
+}
+/* messages instead of map: separator */
+.map .messages .separator
+{
+	background-color: #27B095;
+	height: 1px;
+}
+/* state table base (top right corner of map frame) */
+.map .state
+{
+	width: 188px;
+	background-color: #F1F0F1;
+	border-left: 1px  solid black;
+	border-right: 1px  solid black;
+	border-top: 1px  solid black;
+	font-family: Calibri, Verdana, Arial, Tahoma;
+}
+.map .state .border
+{
+	border-top: 1px  solid black;
+	border-bottom: 1px  solid black;
+}
+.map .state .label
+{
+	font-size: x-small;
+	font-weight: bold;
+	text-align: center;
+}
+.map .state .content TD
+{
+	background-color: #F1F0F1;
+}
+/*== Map End ==========*/
+
+/*== Date Entering Begin ========*/
+.date_period
+{
+	font: x-small Calibri, Verdana, Arial, Tahoma, sans-serif;
+	background-color: #F6F6F6;
+	border: 1px ridge #d4d0c8;
+}
+/* left column (with labels) */
+.date_period .left_col
+{
+	text-align: right;
+	font-weight: bold;
+}
+.date_period TH
+{
+	text-align: center;
+	background-image: url(/Images/rprtHdr_ptrn.gif);
+	height:25px;
+	border-bottom: 1px ridge #d4d0c8;
+}
+.date_period td
+{
+	white-space: nowrap;
+	overflow: visible;
+}
+.date_period .title
+{
+	
+}
+.date_period .separator
+{
+	background-color: #27B095;
+	height: 1px;
+}
+.date_period .chb
+{
+	background-color: #FFFFC4;
+	margin-top: -3px;
+	margin-bottom: -3px;
+}
+.date_period BUTTON
+{
+	background-image:none;
+	font-size: x-small;
+	padding-left: 5px;
+	padding-right: 5px;
+}
+.date_period .s
+{
+	font-weight: bold;
+}
+/* container for date_periods tables */
+.date_period_box
+{
+	border-collapse: collapse;
+	width:600px;
+}
+.date_period_box .border
+{
+	background-color: #F6F6F6;
+	border: 1px ridge #d4d0c8;
+}
+.date_period_box .border .date_period
+{
+	border: 0;
+}
+/*== Date Entering End ==========*/
+
+/*== Credits Okay Info Begin ========*/
+.credit_okay
+{
+	font: small Calibri, Verdana, Arial, Tahoma, sans-serif;
+	background-color: #F1F0F1;
+}
+.credit_okay TH
+{
+}
+/* description of credit */
+.credit_okay .desc
+{
+	font-size: x-small;
+}
+/* count of available credit */
+.credit_okay .available
+{
+}
+/*== Credits Okay Info End ==========*/
+
+/*== Credits LOW Info Begin ========*/
+.credit_low
+{
+	font: small Calibri, Verdana, Arial, Tahoma, sans-serif;
+	background-color: red;
+}
+.credit_low TH
+{
+}
+.credit_low .desc
+{
+	font-size: x-small;
+}
+.credit_low .available
+{
+}
+/*== Credits LOW Info End ==========*/
+
+/*== Satellite Begin ========*/
+/* message */
+.satellite TD
+{
+	font: x-small  Calibri, Arial, Tahoma, sans-serif;
+	font-weight: bold;
+}
+/* progress bar */
+.satellite .progress
+{
+	border: 1px solid black;
+}
+/*== Satellite End ==========*/
+
+/* TopName frame text (if we have no image) */
+.topname
+{
+	font: bold small Calibri, Verdana, Arial, Tahoma, sans-serif;
+	color: #27B095;
+	background-color: #BAFCC6;
+	vertical-align: middle;
+	text-align: center;
+	width: 100%;
+	height: 100%;
+}
+
+/*== Find frame Begin ========*/
+.find
+{
+}
+/*== Find frame End ==========*/
+
+/*== Default page Begin ========*/
+.login {
+    background-image: url("/images/loginback.jpg");
+    width: 693px;
+    height: 485px;
+    background-repeat: no-repeat;
+}
+/* login error message */
+.login .errMessage
+{
+	font: x-small  Calibri, Arial, Tahoma, sans-serif;
+	color: red;
+	vertical-align: bottom;
+	
+}
+/* browser recommended settings string */
+.login .recommend
+{
+	vertical-align:bottom;
+	font: bold x-small Calibri, Verdana, Arial, Helvetica, sans-serif;
+	color: blue;
+}
+/* container where login page table placed
+   (only for centering needs) */
+.login_container
+{
+	width: 100%;
+	height: 100%;
+	text-align: center;
+	vertical-align: bottom;
+}
+/*== Default page End ==========*/
+
+.navigation
+{
+	font-size: 0px;
+	text-align: center;
+	/*background: #BAFCC6 url(/Images/navigation.gif);*/
+	border-bottom: 1px solid #046A86;
+	overflow: hidden;
+}
+
+/*== report scroller Begin ========*/
+.scroller
+{
+	vertical-align: middle;
+	font: x-small Calibri, Verdana, Arial, Tahoma, sans-serif;
+}
+/* current/all count of pages */
+.scroller .page
+{
+}
+/* rows per page setup links */
+.scroller .rowsPerPage A
+{
+}
+.scroller .current
+{
+	font-weight: bold;
+}
+/*== report scroller End ==========*/
+
+/*== help Begin =========*/
+.HELP 
+{
+	background-color: #FFFFEE; 
+	color: black; 
+	padding: 5
+}
+
+/*== help End =========*/
+
+/*== Missions Begin =========*/
+.mission
+{
+	margin-left: 5; 
+	margin-right: 5; 
+	margin-top: 5; 
+	margin-bottom: 5;
+	FONT-FAMILY: Calibri, Verdana, Arial, Tahoma, sans-serif;
+}
+
+.mission .search
+{
+	FONT-FAMILY: Calibri, Verdana, Arial, Tahoma, sans-serif;
+	FONT-SIZE: 13px;
+	BORDER-RIGHT: #d4d0c8 1px ridge;
+	BORDER-TOP: #d4d0c8 1px ridge;
+	BORDER-LEFT: #d4d0c8 1px ridge;
+	BORDER-BOTTOM: #d4d0c8 1px ridge;
+}
+
+.mission .title1
+{
+	FONT-FAMILY: Calibri, Verdana, Arial, Tahoma, sans-serif;
+	FONT-SIZE: 12px;
+
+}
+
+.mission .shift 
+{
+	margin-left: 12
+}
+.mission .tree a
+{
+    FONT-SIZE: 13px;
+    PADDING-BOTTOM: 0px;
+    CURSOR: hand;
+    PADDING-TOP: 0px;
+    FONT-FAMILY: Calibri, Verdana, Arial, Tahoma, sans-serif;
+}
+.mission .NewLink 
+{ 
+	font-family:  Calibri, Arial; 
+	font-size: x-small 
+}
+.mission .frame_border
+{
+	border: solid; 
+	border-width: 2; 
+	border-color: #A7A7A7;
+}
+.mission .frame_border1
+{
+	border-left-style: solid; 
+	border-right-style: solid; 
+	border-top-style: solid; 
+	border-width: 2; 
+	border-color: #A7A7A7;
+}
+.mission a
+{
+	FONT-SIZE: 10px;
+	FONT-FAMILY: Calibri, Verdana, Arial, Tahoma, sans-serif
+}
+.mission P
+{
+  margin-left: 0; margin-top: 0  
+}
+.mission form
+{
+	margin-left: 0; 
+	margin-top: 0  
+}
+.iframe_mission
+{
+	border:0; 
+	margin-left: 5; 
+	margin-right: 5; 
+	margin-top: 5; 
+	margin-bottom: 5;
+	FONT-SIZE: 10px;
+	FONT-FAMILY: Calibri, Verdana, Arial, Tahoma, sans-serif
+}
+.iframe_mission .tree a
+{
+    FONT-SIZE: 13px;
+    PADDING-BOTTOM: 0px;
+    CURSOR: hand;
+    PADDING-TOP: 0px;
+    FONT-FAMILY: Calibri, Verdana, Arial, Tahoma, sans-serif;
+}
+.iframe_mission P
+{
+  	margin-left: 0; 
+  	margin-top: 0  
+}
+.iframe_mission form
+{
+  	margin-left: 0; 
+  	margin-top: 0  
+}
+.iframe_mission iframe 
+{
+  	margin-left: 0; 
+  	margin-top: 0  
+}
+.iframe_mission .NewLink 
+{ 
+	font-family:  Calibri, Arial; 
+	font-size: x-small 
+}
+.iframe_mission .frame_border
+{
+	border: solid; 
+	border-width: 2; 
+	border-color: #A7A7A7;
+}
+.iframe_mission .frame_border1
+{
+	border-left-style: solid; 
+	border-right-style: solid; 
+	border-top-style: solid; 
+	border-width: 2; 
+	border-color: #A7A7A7;
+}
+.iframe_mission .frame_border3
+{
+	border-width: 0; 
+}
+/*== Missions End =========*/
+/*== Shedule Begin =========*/
+.Schedule 
+{
+}
+
+.Schedule TD 
+{
+	PADDING-RIGHT: 3px;    
+	PADDING-LEFT: 4px;    
+	FONT-SIZE: x-small;    
+	PADDING-BOTTOM: 3px;    
+	PADDING-TOP: 3px;    
+	BORDER-BOTTOM: black 1px;    
+	FONT-FAMILY:  Calibri, Arial
+}
+
+.Schedule .description
+{
+	FONT-SIZE: x-small;
+	PADDING-BOTTOM: 5px;    
+	PADDING-TOP: 5px;  
+	border-bottom-style: solid;
+	border-color: #A7A7A7;
+}
+
+.Schedule  .pvd {
+    BACKGROUND-COLOR: #BAFCC6;
+    BORDER-BOTTOM: #d3d3d3 2px groove;
+    BORDER-LEFT: #d3d3d3 2px groove;
+    BORDER-RIGHT: #d3d3d3 2px groove;
+    BORDER-TOP: #d3d3d3 2px groove;
+    FONT-FAMILY: Calibri, Verdana, Arial, Tahoma, sans-serif;
+    FONT-SIZE: 10px;
+    PADDING-LEFT: 0px;
+    PADDING-RIGHT: 0px;
+    width:30px;
+}
+
+
+.Schedule  .error {
+color: red;
+}
+/*== Shedule End =========*/
+
+.report
+{
+	PADDING: 3px;    
+	MARGIN: 3px;    
+	FONT-SIZE: xx-small;    
+	FONT-FAMILY: Verdana,Arial,Tahoma,Sans-Serif;
+}
+
+.report .title
+{
+	
+	height:25px;
+	background:url(/Images/rprtHdr_ptrn2.gif)  repeat-x;
+}
+
+.report .alternate
+{
+	
+	BACKGROUND-COLOR: #F0F0F0;
+}
+
+/*==Consumption begin ====*/
+.ReportParamSelection 
+{
+	FONT-FAMILY:  Calibri, Arial; 
+	PADDING-bottom: 2px; 
+	font-size:x-small;
+	margin-top: 10; 
+	margin-bottom: 5;
+	margin-left: 10;
+}
+
+
+.Tabs 
+{
+	margin-top: 5;
+	PADDING-TOP: 5px; margin-left: 0; margin-right: 0;
+    FONT-FAMILY: Calibri, Verdana, Arial, Tahoma, sans-serif;
+	FONT-SIZE: 13px
+}
+	
+.Tabs .Caption 
+{
+	margin-left: 5; 
+	margin-top: 5;
+	margin-bottom: 5;
+	font-weight: bold; 
+}
+
+.Tabs TABLE
+{
+	COLOR: white; 
+	DISPLAY: block; 
+	PADDING-TOP: 5px; 
+	border=0;
+
+}
+
+.Tabs TABLE TD 
+{
+	PADDING:  3px; 
+}
+
+.Tabs .clsTab 			
+{
+	color: white;
+	font-weight: bold;
+	
+	background-color: #F0F0F0;
+	cursor: hand;
+		
+	border-top: 1px outset #004489;
+	border-right: 1px solid #004489;
+	border-bottom: 1px solid #004489;
+
+}
+
+.Tabs .clsTabRight 			
+{
+	background-color: white;
+	border-bottom: 1px solid #004489;
+	width: 100%;
+}
+
+.Tabs .clsTabLeft 			
+{
+	background-color: white;
+	border-right: 1px solid #004489;
+	border-bottom: 1px solid #004489;
+	width: 0px;
+}
+
+
+.Tabs .clsTabSelected 		
+{
+	color: #CCFFCC;
+	font-weight: bold;
+	background:url('/images/rprtHdr_ptrn2.gif');
+	cursor: default;
+	border-top: 1px outset #004489;
+	border-right: 1px outset black;
+	border-bottom: 0px white;
+}
+
+.Tabs a						
+{
+	font-size:x-small;
+	text-decoration:none;
+	color: black;
+}
+
+.Tabs .clsTab a				
+{
+	cursor: default;
+	font-weight: normal;
+}
+.Tabs .clsTab a:hover 		
+{
+	cursor: hand;
+	font-weight: normal;
+}
+.Tabs .clsTabSelected   a		
+{
+	cursor: default;
+	font-weight: bold;
+}
+
+/*== Consumption End =====*/
+/*== Time Chart Begin ====*/
+.TimeChart 
+	{
+		padding-left: 5; padding-top: 0; 
+	}
+.TimeChart TABLE
+	 {
+	 	
+	 }
+.TimeChart TD
+	{
+		FONT-SIZE: x-small;
+		FONT-FAMILY:  Calibri, Arial;
+	} 
+.TimeChartHour
+	{
+    	FONT-WEIGHT: bolder;
+    	FONT-SIZE: x-small;
+    	FONT-FAMILY:  Calibri, Arial;
+	}
+	
+.TimeChartDay
+	{
+    	FONT-WEIGHT: bolder;
+    	FONT-SIZE: x-small;
+     	FONT-FAMILY:  Calibri, Arial;
+     }	
+.WeekDay
+     {
+     	BACKGROUND-COLOR: #FFF2F2
+     }
+.TopR
+     {
+     	BACKGROUND-COLOR: #BAFCC6
+     }
+/*== Time Chart End ====*/
+/*== Super Report Begin =======*/
+.SRHEADER
+	{
+		PADDING-LEFT:5px;
+		PADDING-TOP:5px;
+		FONT-WEIGHT:bolder;
+		FONT-SIZE:small;
+		FONT-FAMILY:  Calibri, Arial
+	}
+/*== Super Report End  ========*/
+/*== Print Begin =======*/
+.datesPrepareToPrint TD 
+{
+	BACKGROUND-COLOR: lavender;
+	FONT-SIZE:x-small;
+	FONT-FAMILY: Calibri, Verdana,Arial
+}
+@media Print 
+	{
+.hide_prn  	{DISPLAY: none;}
+	}
+/*== Print End =======*/
+
+/*== Map2 Begin ========*/
+.map2, .map2 .messages .chb
+{
+	border-collapse: collapse;
+}
+/* messages instead of map: title */
+.map2 .messages .title
+{
+	background-color: #BAFCC6;
+	border-collapse: collapse;
+}
+/* messages instead of map: separator */
+.map2 .messages .separator
+{
+	background-color: #27B095;
+	height: 1px;
+}
+/* state table base (top right corner of map frame) */
+.map2 .state
+{
+	width: 188px;
+	background-color: #F1F0F1;
+	border: 1px solid black;
+	font-family: Calibri, Verdana, Arial, Tahoma;
+	border-collapse: collapse;
+}
+.map2 .state .border
+{
+	border: 1px solid silver;
+	border-collapse: collapse;
+}
+.map2 .state .label
+{
+	font-size: x-small;
+	font-weight: bold;
+	text-align: center;
+}
+.map2 .state .content TD
+{
+	background-color: #F1F0F1;
+}
+
+.map2 .errMessage
+
+{
+	FONT-FAMILY: Arial;
+	color: red;
+	font-size: x-small;
+
+}
+
+.map2 .mapcontainer
+
+{
+	BACKGROUND-COLOR: silver;  
+	BORDER: silver 1px outset;
+}	
+
+.map2 .maptbl
+
+{
+	MARGIN-TOP: 10px; 
+	MARGIN-LEFT: 12px;
+	MARGIN-BOTTOM: 10px;
+}
+
+.map2 .maptbl .maptbl2
+
+{
+	BORDER-RIGHT: #eaeaea 1px solid; 
+	BORDER-TOP: #eaeaea 1px solid; 
+	BORDER-LEFT: #eaeaea 1px solid; 
+	BORDER-BOTTOM: #eaeaea 1px solid;
+}
+
+H4#bg_m {
+	PADDING-LEFT: 12px; BACKGROUND:  #F1F0F1 repeat-x; MARGIN-TOP: 4px; MARGIN-BOTTOM: 4px; PADDING: 3px; HEIGHT: 24px
+}
+.mapcontrols{
+	background-color:  #F1F0F1;
+	padding: 3px;
+	border-top:1px solid #606060;
+	border-right:1px solid #606060;
+	border-bottom:1px solid #606060;
+}
+
+.map_coordinates{
+	font: x-small Calibri, Verdana, Arial, Tahoma, sans-serif;
+	color: #000000;
+	background-color: #F1F0F1;
+	padding: 3px;
+	MARGIN-BOTTOM: 10px;
+	z-index: 1;
+	white-space: nowrap; 
+	BORDER: #666 1px solid;
+}	
+.map_coordinates td{
+	font-size: x-small;
+	color: Black;
+	white-space: nowrap; 
+}
+/*== Map2 End ==========*/
+
+/*== Submit button ==========*/
+.submit
+{
+	background-image: url(/Images/Menu/btn_ptrn.png);
+	border: 1px solid #d3d3d3;
+	font: x-small Calibri, Verdana, Arial, Tahoma, sans-serif;
+	padding-left: 5px;
+	padding-right: 5px;
+}
+/*== Submit button End==========*/
+
+/*== Places Groups for missions ==========*/
+
+.placegroups
+{
+	overflow: auto; 
+	width: 200; 
+	height: 85%; 
+	BACKGROUND-COLOR: #f0f0f0;
+	border: 1 solid #000000;
+	padding: 2;
+	
+}	
+/* == Places Groups for missions End ======*/
+
+/* ====== Dialog Begin ========== */
+.dialog
+{
+	border: 1px solid #666666 !important;
+	border-collapse: collapse;
+	font: x-small Calibri, Verdana, Arial, Tahoma, sans-serif !important;
+	padding-left: 5px !important;
+	padding-right: 5px !important;
+}
+.dialog #dialog_title
+{
+	text-align: center;
+	background-color: #BAFCC6;
+	font-weight:bold;
+}
+
+.dialog #dialog_message
+{
+	text-align:center;
+	font: x-small Calibri, Verdana, Arial, Tahoma, sans-serif;
+}
+.dialog #dialog_button /* may be change to BUTTON.dialog And set class="dialog" in code */
+{
+	border: 1px solid #666666 !important;
+	font: x-small Calibri, Verdana, Arial, Tahoma, sans-serif !important;
+	background-color: #F1F0F1 !important;
+	padding-left: 10px !important;
+	padding-right: 10px !important;
+	MARGIN-LEFT: 10px;
+	text-align:center;
+}
+/* ====== Dialog End ============ */
+/*== map right click menu begin========*/
+.rc_box
+{
+	font: x-small Calibri, Verdana, Arial, Tahoma, sans-serif;
+	border-width: 1px; 
+	border-style: solid; 
+	border-color:#808080; 
+	border-collapse:collapse;	
+}
+
+.rc_box TH
+{
+	border-bottom-style: solid; 
+	border-color:#000000; 
+	border-width:1; 
+	background-color: #F1F0F1;
+	padding: 3px;
+	text-align: left !important;
+	
+}
+
+.rc_box TD
+{
+	background-color: #FFF;
+	padding: 3px;
+}
+
+.map_comment
+{
+font: x-small Calibri, Verdana, Arial, Tahoma, sans-serif;
+color: #C0C0C0;
+text-align: left !important;
+}
+/*== right click menu end========*/
+
+.popupform
+{
+	font: x-small;
+	color: #C0C0C0;
+	background-color: #FFF;
+	position: absolute;
+	padding: 10px;
+	border-width: 1px; 
+	border-style: solid; 
+	border-color:#666666; 
+	border-collapse:collapse;
+	text-align: center !important;
+	z-index: 1000;
+	width: 400px;
+	
+}
+.popupform table
+{
+	font: x-small Calibri, Verdana, Arial, Tahoma, sans-serif;
+}
+.popupform input
+{
+	margin: 5px 5px 5px 5px;
+}
+iframe.ieSelectFree
+{
+ display:none;/*sorry for IE5*/ 
+ display/**/:block;/*sorry for IE5*/
+ position:absolute;/*must have*/
+ top:0;/*must have*/
+ left:0;/*must have*/
+ z-index:-1;/*must have*/
+ filter:mask();/*must have*/
+ width:350px;/*must have for any big value*/
+ background-color: #E2E2E2;
+/* height:1000px/*must have for any big value*/;
+}
+
+
+.trackmodeinfo
+{
+	font: x-small Calibri, Verdana, Arial, Tahoma, sans-serif;
+	color: #FFF;
+	background-image:url('/Images/rtt-back.jpg');
+	border-width:1px;
+	border-color:#E25D1D;
+	padding: 3px;
+	MARGIN-BOTTOM: 5px;
+	MARGIN-TOP: 5px;
+	z-index: 1;
+	white-space: nowrap; 
+}	
+
+.trackmodestopinfo
+{
+	font: x-small Calibri, Verdana, Arial, Tahoma, sans-serif;
+	color: #FFF;
+	background-color: #33CC33;
+	padding: 3px;
+	MARGIN-BOTTOM: 5px;
+	MARGIN-TOP: 5px;
+	z-index: 1;
+	white-space: nowrap; 
+}
+
+.popupform input 
+{
+	border: 1px solid #666666 !important;
+	font: x-small Calibri, Verdana, Arial, Tahoma, sans-serif !important;
+	background-color: #F1F0F1 !important;
+	padding-left: 5px !important;
+	padding-right: 5px !important;
+	
+}	
+
+.mapbtn 
+{
+	border: 1px solid #666666 !important;
+	font: x-small Calibri, Verdana, Arial, Tahoma, sans-serif !important;
+	background-color: #F1F0F1 !important;
+	padding-left: 10px !important;
+	padding-right: 10px !important;
+	text-align:center;
+}
+
+.mapsearchform
+{
+	margin-top: 5px !important;
+	font: x-small Calibri, Verdana, Arial, Tahoma, sans-serif !important;
+}
+
+.mapsearchform .title
+{
+	font-weight:bold;
+}
+
+.mapsearchform .input
+{
+	border: 1px solid #666666 !important;
+	font: x-small Calibri, Verdana, Arial, Tahoma, sans-serif !important;
+	padding-left: 10px !important;
+	padding-right: 10px !important;	
+}
+
+.mapsearchform .btn
+{
+	text-align:center;
+	background-color: #F1F0F1 !important;
+	border: 1px solid #666666 !important;
+	font: x-small Calibri, Verdana, Arial, Tahoma, sans-serif !important;
+	padding-left: 10px !important;
+	padding-right: 10px !important;	
+}
+
+.maplabel
+{
+	font: x-small Calibri, Verdana, Arial, Tahoma, sans-serif;
+	color: #000000;
+	background-color: #FFF;
+	padding: 1px;
+	border: 1px solid #666666 !important;
+	z-index: 1;
+	white-space: nowrap;
+	max-width: 21em;
+	padding-left: 1em;
+	padding-right: 1em;
+}	
+.maphistnum{
+	font-family: Calibri, Verdana, Arial, Tahoma, sans-serif;
+	font-size: 7pt;
+	font-weight:bolder;
+	color: #FF00FF;
+	background-color: transparent;
+}
+
+.ChangeMapTypes
+{
+	font: x-small Calibri, Verdana, Arial, Tahoma, sans-serif;
+	margin-bottom: 0px !important;
+	margin-top: 2px;
+	padding: 0px !important;
+	
+
+}	
+
+.ChangeMapTypes .selected
+{
+	font-weight: bold;
+
+}	
+
+
+/*===== Calendar Styles Begin =========*/
+.jsCalendarDiv {
+  font: x-small Calibri, Verdana, Arial, Tahoma, sans-serif !important;
+  position: absolute;
+  display: none;
+  border: 1px solid #808080;
+  background-color: white;
+}
+
+.jsCalendarTable {
+  border-collapse: collapse;
+}
+
+.jsCalendarTable thead td {
+	background-color: #F1F0F1;
+	cursor: default;
+	width: 2.5em;
+	text-align: center;
+	text-transform: capitalize;
+	border: none;/*1px solid white;*/
+}
+
+.jsCalendarTableBtns {
+	font: bolder x-small Calibri, Verdana, Arial, Tahoma, sans-serif;
+	padding-left: 2px;
+	padding-right: 2px;
+	width: 24px;
+	text-align: right;
+	overflow: auto;
+	cursor: pointer;
+	border: none;
+	background-color: transparent;
+  
+}
+.jsCalendarCtrl{
+	padding-left: 0px;
+	padding-right: 0px;
+	width: 100%;
+	text-align: center;
+	overflow: hidden;
+	vertical-align: middle;
+}
+.jsCalendarCtrl td{
+	padding-left: 0px;
+	padding-right: 0px;
+	width: auto;
+	text-align: center;
+}
+.jsCalendarTable thead td.wd {
+	border: 1px solid white;
+}
+.jsCalendarTable thead td.wdWE {
+	border: 1px solid white;
+	color: red;
+}
+
+.jsCalendarTable thead td.separator {
+	border: 0px black;
+	background-color: black;
+	height: 2px;
+	width: auto;
+}
+.jsCalendarTable thead td {
+	/*display: compact;*/
+}
+.jsCalendarTable select {
+	text-align: center;
+	border: 1px solid black;
+	font: x-small Calibri, Verdana, Arial, Tahoma, sans-serif;
+	width: auto;
+	border-collapse: collapse;
+	margin: 1px;
+}
+
+.jsCalendarTable td {
+  text-align: center;
+  border: 1px solid white;
+  font: x-small Calibri, Verdana, Arial, Tahoma, sans-serif;
+}
+
+.jsCalendarTable td.day {
+	background-color: #F1F0F1;
+	color: black;
+	cursor: pointer;
+}
+.jsCalendarTable td.dayWE {
+	background-color: #F1F0F1;
+	color: red;
+	cursor: pointer;
+}
+.jsCalendarTable td.dayOthrMonth {
+	background-color: inherit;
+	color: DarkGray;
+	cursor: pointer;
+}
+.jsCalendarTable td.dayOthrMonthWE {
+	background-color: inherit;
+	color: #FF9999;
+	cursor: pointer;
+}
+.jsCalendarTable td.daySelected {
+	background-color: #778899;
+	font-weight: bold;
+	color: white;
+	cursor: pointer;
+}
+.jsCalendarTable a.todayLink{
+	position:absolute;
+	left:2px;
+	top:2px;
+	font-style:italic;
+	text-decoration:underline;
+}
+.imgButton
+{
+	background-color: transparent;
+	padding-right: 0px;
+	padding-left: 0px;
+	border: none;
+	width: auto;
+}
+.dateselected
+{
+	font: bolder x-small Calibri, Verdana, Arial, Tahoma, sans-serif;
+	padding-left: 5px;
+	padding-right: 1px; /*width: 13em;*/
+	white-space: nowrap;
+	text-align: right;
+	overflow: visible;
+}
+.timeInput
+{
+	width: 2em;
+	text-align: center;
+	margin: 0 0 0 0;
+	padding: 0 0 0 0;
+}
+/*===== Calendar Styles End ===========*/
+/*===== Crash Report Begin ===========*/
+.print_btn
+{
+	position: absolute; top: 0; left: 570;
+}	
+#print_header 
+{
+	display: none;
+}
+
+#show_for_print
+{
+	display: none;
+}
+
+#hide_for_print
+{
+}	
+
+@media Print 
+{
+	#print_header 
+	{
+		display: block;
+		page-break-before:always;
+	}
+	.print_btn,#id_span_zoomCtrl,#id_div_GMapTypes,#id_tr_mapmove_u,#id_tr_mapmove_l,#id_td_mapmove_l,#id_td_mapmove_r,#bg_m,#map_coordinates   
+	{
+		DISPLAY: none;
+	}
+	#show_for_print
+	{
+		display: block;
+	}
+	#hide_for_print, .mapcontrols
+	{
+		display: none;
+	}	
+}
+
+.ErrLine
+{
+	background-color: #FF9999;
+}	
+/*===== Crash Report End ===========*/
+/*===== Unit quick selection Begin ===========*/
+.UnitQS
+{
+	font: x-small Calibri, Verdana, Arial, Tahoma, sans-serif !important;
+}	
+
+.UnitQS SELECT
+{
+
+}
+/*===== Unit quick selection End ===========*/
+
+/*===== Selection row on click Begin =========*/
+TR #row_selected
+{
+	background-color: #FFFFC4;
+}
+/*===== Selection row on click End=========*/	
+
+          </style>
+      
+        
+      
+</head>
+
+<body class="margined">
+
+    <table class="headerOperative" style="width:100%; margin-bottom:20px;">
+    <tr >
+        <td>
+            <div class="titleBig">SAVIA PERU S.A.</div>
+            <div class="title" id="id_header_report_name">&nbsp;</div>
+        </td> 
+        <td  style="text-align:right; width:90px;">
+        
+        <div style="font-size:12px;text-align:right;">Fecha:&nbsp;15/03/2021 10:05:55</div>
+        </td>
+    
+      
+    </tr>
+
+    
+
+    </table>
+
+<div id="id_div_report_full_5220"><TABLE name="table_container" style="border:none; "><TR><TD><STYLE TYPE='text/css'>.S5702Header{    FONT-WEIGHT: bolder;    FONT-SIZE: x-small;    FONT-FAMILY: Verdana,Arial,Tahoma,Sans-Serif;    border:none;        border-spacing:0;  border-collapse:collapse;}.S5702Input{	BORDER-STYLE: none; 	BACKGROUND-COLOR: #E6E6F2; 	VERTICAL-ALIGN: middle}.S5702TReportRowGreen{	background-color: #C0FFC0;}.S5702THeader{}.S5702THeader TD{    BORDER-RIGHT: white thin solid;    PADDING-RIGHT: 5px;    PADDING-LEFT: 5px;    FONT-SIZE: xx-small;    PADDING-BOTTOM: 5px;    PADDING-TOP: 5px;    FONT-FAMILY: Arial;    background-image: url(/Images/wrprtHdr_ptrn.gif) ;    }.S5702THeader SELECT{	FONT-SIZE: xx-small;}.S5702WholeTable{    width:100%;}.S5702TBody{}.S5702TBody TD{    PADDING-RIGHT: 3px;    PADDING-LEFT: 4px;    FONT-SIZE: xx-small;    PADDING-BOTTOM: 3px;    PADDING-TOP: 3px;    BORDER-BOTTOM: black 1px;    FONT-FAMILY: Arial}.S5702TBodyOddRow{    BACKGROUND-COLOR: #F0F0F0;}.S5702TBodySubtotal{			FONT-SIZE: 71% !important;    FONT-WEIGHT: bold !important;     PADDING-RIGHT: 3px;    PADDING-LEFT: 4px;    PADDING-BOTTOM: 3px;    PADDING-TOP: 3px;    BORDER-BOTTOM: black 1px;    BACKGROUND-COLOR: lightgrey;}.S5702TBodyNewRowStyle{    BORDER-RIGHT: white thin solid;    BORDER-TOP: white thin solid;    FONT-WEIGHT: bolder;    COLOR: red;}.S5702afbtn{	background-image: url(/Images/Menu/btn_ptrn.png);}	</STYLE><table class=S5702Header ><tr><td  vAlign=middle >Summary&nbsp;</td><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td><td style='text-align:right'></td></tr></table><table  border=0 class=S5702WholeTable cellspacing=0 cellpadding=0> <thead class=S5702THeader ><tr><td>Duración parada</a_></td><td>Distancia viaje, km</a_></td><input type=hidden name="ReportIdentifier" value="5220"></tr></thead><tbody class=S5702TBody><tr><td   align=right x:str style='mso-number-format:"\@"'>5D 12H 41M</td>
+<td   align=right x:str style='mso-number-format:"\@"'>7139.79</td>
+</tr></tbody></table></TD></TR></TABLE></div></form></div><div id="id_div_report_full_4711">
+            <div>Reporte Paradas</div>
+        <TABLE name="table_container" style="border:none; "><TR><TD><STYLE TYPE='text/css'>.S56Header{    FONT-WEIGHT: bolder;    FONT-SIZE: x-small;    FONT-FAMILY: Verdana,Arial,Tahoma,Sans-Serif;    border:none;        border-spacing:0;  border-collapse:collapse;}.S56Input{	BORDER-STYLE: none; 	BACKGROUND-COLOR: #E6E6F2; 	VERTICAL-ALIGN: middle}.S56TReportRowGreen{	background-color: #C0FFC0;}.S56THeader{}.S56THeader TD{    BORDER-RIGHT: white thin solid;    PADDING-RIGHT: 5px;    PADDING-LEFT: 5px;    FONT-SIZE: xx-small;    PADDING-BOTTOM: 5px;    PADDING-TOP: 5px;    FONT-FAMILY: Arial;    background-image: url(/Images/wrprtHdr_ptrn.gif) ;    }.S56THeader SELECT{	FONT-SIZE: xx-small;}.S56WholeTable{    width:100%;}.S56TBody{}.S56TBody TD{    PADDING-RIGHT: 3px;    PADDING-LEFT: 4px;    FONT-SIZE: xx-small;    PADDING-BOTTOM: 3px;    PADDING-TOP: 3px;    BORDER-BOTTOM: black 1px;    FONT-FAMILY: Arial}.S56TBodyOddRow{    BACKGROUND-COLOR: #F0F0F0;}.S56TBodySubtotal{			FONT-SIZE: 71% !important;    FONT-WEIGHT: bold !important;     PADDING-RIGHT: 3px;    PADDING-LEFT: 4px;    PADDING-BOTTOM: 3px;    PADDING-TOP: 3px;    BORDER-BOTTOM: black 1px;    BACKGROUND-COLOR: lightgrey;}.S56TBodyNewRowStyle{    BORDER-RIGHT: white thin solid;    BORDER-TOP: white thin solid;    FONT-WEIGHT: bolder;    COLOR: red;}.S56afbtn{	background-image: url(/Images/Menu/btn_ptrn.png);}	</STYLE><table class=S56Header ><tr><td  vAlign=middle >Reporte Paradas&nbsp;(-) MSG_FilterStopsMinutes&nbsp;0 Minutos</td><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td><td style='text-align:right'></td></tr></table><table  border=0 class=S56WholeTable cellspacing=0 cellpadding=0> <thead class=S56THeader ><tr><td>Month and day</a_></td><td>Descripción</a_></td><td>Hora de inicio parada</a_></td><td>Hora fin de parada</a_></td><td>Duración parada</a_></td><td>&nbsp;</a_></td><td>Llave</a_></td><td>Localidad</a_></td><td>Place</a_></td><td>Latitud</a_></td><td>Longitud</a_></td><td>Distancia cubierta Km, km</a_></td><td>Distancia viaje, km, km</a_></td><input type=hidden name="ReportIdentifier" value="4711"></tr></thead><tbody class=S56TBody><tr><td  nowrap x:str style='mso-number-format:"\@"'>(-) MSG_MONTH_3&nbsp;14</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>BUCKLEY</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>14/03/2021 00:00:27</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>14/03/2021 23:59:59</td>
+<td  nowrap  align=right x:str style='mso-number-format:"\@"'>1D 0M</td>
+<td  nowrap x:str style='mso-number-format:"\@"'><img_ src='../images/parking.gif'></td>
+<td  nowrap x:str style='mso-number-format:"\@"'>Off</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>Ca.S/N Ub Barrio Acapulco, PariÐas Talara Piura, Perù</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>PUERTO  TALARA</td>
+<td  nowrap x:str style='mso-number-format:"\@"'><p style="text-align:left;">-4.5723899</p></td>
+<td  nowrap x:str style='mso-number-format:"\@"'><p style="text-align:left;">-81.2755049</p></td>
+<td  nowrap  align=right x:str style='mso-number-format:"\@"'>0</td>
+<td  nowrap  align=right x:str style='mso-number-format:"\@"'>2.62</td>
+</tr><tr class=S56TBodyOddRow ><td  nowrap x:str style='mso-number-format:"\@"'>(-) MSG_MONTH_3&nbsp;14</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>CHIMERA</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>14/03/2021 00:00:00</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>14/03/2021 00:18:34</td>
+<td  nowrap  align=right x:str style='mso-number-format:"\@"'>19M</td>
+<td  nowrap x:str style='mso-number-format:"\@"'><img_ src='../images/parkingShort.gif'></td>
+<td  nowrap x:str style='mso-number-format:"\@"'>Off</td>
+<td  nowrap x:str style='mso-number-format:"\@"'></td>
+<td  nowrap x:str style='mso-number-format:"\@"'>CAMPO CHIRA</td>
+<td  nowrap x:str style='mso-number-format:"\@"'><p style="text-align:left;">-4.8081499</p></td>
+<td  nowrap x:str style='mso-number-format:"\@"'><p style="text-align:left;">-81.3363331</p></td>
+<td  nowrap  align=right x:str style='mso-number-format:"\@"'>0</td>
+<td  nowrap  align=right x:str style='mso-number-format:"\@"'>0</td>
+</tr><tr><td  nowrap x:str style='mso-number-format:"\@"'>(-) MSG_MONTH_3&nbsp;14</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>CHIMERA</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>14/03/2021 09:18:57</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>14/03/2021 12:19:07</td>
+<td  nowrap  align=right x:str style='mso-number-format:"\@"'>3H 0M</td>
+<td  nowrap x:str style='mso-number-format:"\@"'><img_ src='../images/stops.gif'></td>
+<td  nowrap x:str style='mso-number-format:"\@"'>On</td>
+<td  nowrap x:str style='mso-number-format:"\@"'></td>
+<td  nowrap x:str style='mso-number-format:"\@"'>CAMPO SAN PEDRO</td>
+<td  nowrap x:str style='mso-number-format:"\@"'><p style="text-align:left;">-5.6032833</p></td>
+<td  nowrap x:str style='mso-number-format:"\@"'><p style="text-align:left;">-81.0788500</p></td>
+<td  nowrap  align=right x:str style='mso-number-format:"\@"'>87.76</td>
+<td  nowrap  align=right x:str style='mso-number-format:"\@"'>93.42</td>
+</tr><tr class=S56TBodyOddRow ><td  nowrap x:str style='mso-number-format:"\@"'>(-) MSG_MONTH_3&nbsp;14</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>CHIMERA</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>14/03/2021 14:18:38</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>14/03/2021 18:18:47</td>
+<td  nowrap  align=right x:str style='mso-number-format:"\@"'>4H 0M</td>
+<td  nowrap x:str style='mso-number-format:"\@"'><img_ src='../images/stops.gif'></td>
+<td  nowrap x:str style='mso-number-format:"\@"'>On</td>
+<td  nowrap x:str style='mso-number-format:"\@"'></td>
+<td  nowrap x:str style='mso-number-format:"\@"'>CAMPO SAN PEDRO</td>
+<td  nowrap x:str style='mso-number-format:"\@"'><p style="text-align:left;">-5.6032500</p></td>
+<td  nowrap x:str style='mso-number-format:"\@"'><p style="text-align:left;">-81.0773999</p></td>
+<td  nowrap  align=right x:str style='mso-number-format:"\@"'>102.49</td>
+<td  nowrap  align=right x:str style='mso-number-format:"\@"'>104.34</td>
+</tr><tr><td  nowrap x:str style='mso-number-format:"\@"'>(-) MSG_MONTH_3&nbsp;14</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>CHIMERA</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>14/03/2021 21:19:01</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>14/03/2021 23:19:04</td>
+<td  nowrap  align=right x:str style='mso-number-format:"\@"'>2H 0M</td>
+<td  nowrap x:str style='mso-number-format:"\@"'><img_ src='../images/stops.gif'></td>
+<td  nowrap x:str style='mso-number-format:"\@"'>On</td>
+<td  nowrap x:str style='mso-number-format:"\@"'></td>
+<td  nowrap x:str style='mso-number-format:"\@"'>CAMPO SAN PEDRO</td>
+<td  nowrap x:str style='mso-number-format:"\@"'><p style="text-align:left;">-5.6030666</p></td>
+<td  nowrap x:str style='mso-number-format:"\@"'><p style="text-align:left;">-81.0781999</p></td>
+<td  nowrap  align=right x:str style='mso-number-format:"\@"'>114.2</td>
+<td  nowrap  align=right x:str style='mso-number-format:"\@"'>116.74</td>
+</tr><tr class=S56TBodyOddRow ><td  nowrap x:str style='mso-number-format:"\@"'>(-) MSG_MONTH_3&nbsp;14</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>CHIMERA</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>14/03/2021 23:19:04</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>14/03/2021 23:59:59</td>
+<td  nowrap  align=right x:str style='mso-number-format:"\@"'>41M</td>
+<td  nowrap x:str style='mso-number-format:"\@"'><img_ src='../images/parkingShort.gif'></td>
+<td  nowrap x:str style='mso-number-format:"\@"'>Off</td>
+<td  nowrap x:str style='mso-number-format:"\@"'></td>
+<td  nowrap x:str style='mso-number-format:"\@"'>CAMPO SAN PEDRO</td>
+<td  nowrap x:str style='mso-number-format:"\@"'><p style="text-align:left;">-5.6024832</p></td>
+<td  nowrap x:str style='mso-number-format:"\@"'><p style="text-align:left;">-81.0786499</p></td>
+<td  nowrap  align=right x:str style='mso-number-format:"\@"'>116.74</td>
+<td  nowrap  align=right x:str style='mso-number-format:"\@"'>116.74</td>
+</tr><tr><td  nowrap x:str style='mso-number-format:"\@"'>(-) MSG_MONTH_3&nbsp;14</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>CHIP II</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>14/03/2021 00:00:00</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>14/03/2021 08:04:00</td>
+<td  nowrap  align=right x:str style='mso-number-format:"\@"'>8H 4M</td>
+<td  nowrap x:str style='mso-number-format:"\@"'><img_ src='../images/parking.gif'></td>
+<td  nowrap x:str style='mso-number-format:"\@"'>Off</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>Lobitos Piura, PER</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>Flotante LO</td>
+<td  nowrap x:str style='mso-number-format:"\@"'><p style="text-align:left;">-4.4359440</p></td>
+<td  nowrap x:str style='mso-number-format:"\@"'><p style="text-align:left;">-81.3185919</p></td>
+<td  nowrap  align=right x:str style='mso-number-format:"\@"'>0</td>
+<td  nowrap  align=right x:str style='mso-number-format:"\@"'>1.69</td>
+</tr><tr class=S56TBodyOddRow ><td  nowrap x:str style='mso-number-format:"\@"'>(-) MSG_MONTH_3&nbsp;14</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>CHIP II</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>14/03/2021 08:09:00</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>14/03/2021 08:19:39</td>
+<td  nowrap  align=right x:str style='mso-number-format:"\@"'>11M</td>
+<td  nowrap x:str style='mso-number-format:"\@"'><img_ src='../images/stops.gif'></td>
+<td  nowrap x:str style='mso-number-format:"\@"'>On</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>Lobitos Piura, PER</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>ZZ</td>
+<td  nowrap x:str style='mso-number-format:"\@"'><p style="text-align:left;">-4.4456400</p></td>
+<td  nowrap x:str style='mso-number-format:"\@"'><p style="text-align:left;">-81.3172649</p></td>
+<td  nowrap  align=right x:str style='mso-number-format:"\@"'>2.78</td>
+<td  nowrap  align=right x:str style='mso-number-format:"\@"'>3.03</td>
+</tr><tr><td  nowrap x:str style='mso-number-format:"\@"'>(-) MSG_MONTH_3&nbsp;14</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>CHIP II</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>14/03/2021 08:36:39</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>14/03/2021 08:44:09</td>
+<td  nowrap  align=right x:str style='mso-number-format:"\@"'>8M</td>
+<td  nowrap x:str style='mso-number-format:"\@"'><img_ src='../images/stops.gif'></td>
+<td  nowrap x:str style='mso-number-format:"\@"'>On</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>Lobitos Piura, PER</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>LO10</td>
+<td  nowrap x:str style='mso-number-format:"\@"'><p style="text-align:left;">-4.4654099</p></td>
+<td  nowrap x:str style='mso-number-format:"\@"'><p style="text-align:left;">-81.3496799</p></td>
+<td  nowrap  align=right x:str style='mso-number-format:"\@"'>7.24</td>
+<td  nowrap  align=right x:str style='mso-number-format:"\@"'>7.47</td>
+</tr><tr class=S56TBodyOddRow ><td  nowrap x:str style='mso-number-format:"\@"'>(-) MSG_MONTH_3&nbsp;14</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>CHIP II</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>14/03/2021 08:51:09</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>14/03/2021 09:12:36</td>
+<td  nowrap  align=right x:str style='mso-number-format:"\@"'>21M</td>
+<td  nowrap x:str style='mso-number-format:"\@"'><img_ src='../images/stops.gif'></td>
+<td  nowrap x:str style='mso-number-format:"\@"'>On</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>Lobitos Piura, PER</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>LO16</td>
+<td  nowrap x:str style='mso-number-format:"\@"'><p style="text-align:left;">-4.4686719</p></td>
+<td  nowrap x:str style='mso-number-format:"\@"'><p style="text-align:left;">-81.3654784</p></td>
+<td  nowrap  align=right x:str style='mso-number-format:"\@"'>9.18</td>
+<td  nowrap  align=right x:str style='mso-number-format:"\@"'>9.65</td>
+</tr><tr><td  nowrap x:str style='mso-number-format:"\@"'>(-) MSG_MONTH_3&nbsp;14</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>CHIP II</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>14/03/2021 09:21:24</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>14/03/2021 09:24:57</td>
+<td  nowrap  align=right x:str style='mso-number-format:"\@"'>4M</td>
+<td  nowrap x:str style='mso-number-format:"\@"'><img_ src='../images/stops.gif'></td>
+<td  nowrap x:str style='mso-number-format:"\@"'>On</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>Lobitos Piura, PER</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>LO13</td>
+<td  nowrap x:str style='mso-number-format:"\@"'><p style="text-align:left;">-4.4801849</p></td>
+<td  nowrap x:str style='mso-number-format:"\@"'><p style="text-align:left;">-81.3521399</p></td>
+<td  nowrap  align=right x:str style='mso-number-format:"\@"'>11.58</td>
+<td  nowrap  align=right x:str style='mso-number-format:"\@"'>11.78</td>
+</tr><tr class=S56TBodyOddRow ><td  nowrap x:str style='mso-number-format:"\@"'>(-) MSG_MONTH_3&nbsp;14</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>CHIP II</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>14/03/2021 09:34:57</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>14/03/2021 09:37:09</td>
+<td  nowrap  align=right x:str style='mso-number-format:"\@"'>2M</td>
+<td  nowrap x:str style='mso-number-format:"\@"'><img_ src='../images/stops.gif'></td>
+<td  nowrap x:str style='mso-number-format:"\@"'>On</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>Lobitos Piura, PER</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>LO14</td>
+<td  nowrap x:str style='mso-number-format:"\@"'><p style="text-align:left;">-4.4662049</p></td>
+<td  nowrap x:str style='mso-number-format:"\@"'><p style="text-align:left;">-81.3354899</p></td>
+<td  nowrap  align=right x:str style='mso-number-format:"\@"'>14.09</td>
+<td  nowrap  align=right x:str style='mso-number-format:"\@"'>14.28</td>
+</tr><tr><td  nowrap x:str style='mso-number-format:"\@"'>(-) MSG_MONTH_3&nbsp;14</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>CHIP II</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>14/03/2021 09:46:27</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>14/03/2021 09:48:27</td>
+<td  nowrap  align=right x:str style='mso-number-format:"\@"'>2M</td>
+<td  nowrap x:str style='mso-number-format:"\@"'><img_ src='../images/stops.gif'></td>
+<td  nowrap x:str style='mso-number-format:"\@"'>On</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>Lobitos Piura, PER</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>LO13</td>
+<td  nowrap x:str style='mso-number-format:"\@"'><p style="text-align:left;">-4.4799600</p></td>
+<td  nowrap x:str style='mso-number-format:"\@"'><p style="text-align:left;">-81.3518849</p></td>
+<td  nowrap  align=right x:str style='mso-number-format:"\@"'>16.63</td>
+<td  nowrap  align=right x:str style='mso-number-format:"\@"'>16.8</td>
+</tr><tr class=S56TBodyOddRow ><td  nowrap x:str style='mso-number-format:"\@"'>(-) MSG_MONTH_3&nbsp;14</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>CHIP II</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>14/03/2021 09:51:27</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>14/03/2021 09:52:09</td>
+<td  nowrap  align=right x:str style='mso-number-format:"\@"'>1M</td>
+<td  nowrap x:str style='mso-number-format:"\@"'><img_ src='../images/stops.gif'></td>
+<td  nowrap x:str style='mso-number-format:"\@"'>On</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>Lobitos Piura, PER</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>CAMPO  LOBITOS</td>
+<td  nowrap x:str style='mso-number-format:"\@"'><p style="text-align:left;">-4.4753850</p></td>
+<td  nowrap x:str style='mso-number-format:"\@"'><p style="text-align:left;">-81.3469050</p></td>
+<td  nowrap  align=right x:str style='mso-number-format:"\@"'>17.51</td>
+<td  nowrap  align=right x:str style='mso-number-format:"\@"'>17.62</td>
+</tr><tr><td  nowrap x:str style='mso-number-format:"\@"'>(-) MSG_MONTH_3&nbsp;14</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>CHIP II</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>14/03/2021 09:55:18</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>14/03/2021 10:06:18</td>
+<td  nowrap  align=right x:str style='mso-number-format:"\@"'>11M</td>
+<td  nowrap x:str style='mso-number-format:"\@"'><img_ src='../images/stops.gif'></td>
+<td  nowrap x:str style='mso-number-format:"\@"'>On</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>Lobitos Piura, PER</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>LO13</td>
+<td  nowrap x:str style='mso-number-format:"\@"'><p style="text-align:left;">-4.4801088</p></td>
+<td  nowrap x:str style='mso-number-format:"\@"'><p style="text-align:left;">-81.3519999</p></td>
+<td  nowrap  align=right x:str style='mso-number-format:"\@"'>18.33</td>
+<td  nowrap  align=right x:str style='mso-number-format:"\@"'>18.49</td>
+</tr><tr class=S56TBodyOddRow ><td  nowrap x:str style='mso-number-format:"\@"'>(-) MSG_MONTH_3&nbsp;14</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>CHIP II</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>14/03/2021 10:15:57</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>14/03/2021 10:18:09</td>
+<td  nowrap  align=right x:str style='mso-number-format:"\@"'>2M</td>
+<td  nowrap x:str style='mso-number-format:"\@"'><img_ src='../images/stops.gif'></td>
+<td  nowrap x:str style='mso-number-format:"\@"'>On</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>Lobitos Piura, PER</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>LO14</td>
+<td  nowrap x:str style='mso-number-format:"\@"'><p style="text-align:left;">-4.4660549</p></td>
+<td  nowrap x:str style='mso-number-format:"\@"'><p style="text-align:left;">-81.3352950</p></td>
+<td  nowrap  align=right x:str style='mso-number-format:"\@"'>20.87</td>
+<td  nowrap  align=right x:str style='mso-number-format:"\@"'>20.98</td>
+</tr><tr><td  nowrap x:str style='mso-number-format:"\@"'>(-) MSG_MONTH_3&nbsp;14</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>CHIP II</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>14/03/2021 10:24:33</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>14/03/2021 10:28:03</td>
+<td  nowrap  align=right x:str style='mso-number-format:"\@"'>4M</td>
+<td  nowrap x:str style='mso-number-format:"\@"'><img_ src='../images/stops.gif'></td>
+<td  nowrap x:str style='mso-number-format:"\@"'>On</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>Lobitos Piura, PER</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>LO10</td>
+<td  nowrap x:str style='mso-number-format:"\@"'><p style="text-align:left;">-4.4653799</p></td>
+<td  nowrap x:str style='mso-number-format:"\@"'><p style="text-align:left;">-81.3496050</p></td>
+<td  nowrap  align=right x:str style='mso-number-format:"\@"'>22.57</td>
+<td  nowrap  align=right x:str style='mso-number-format:"\@"'>22.74</td>
+</tr><tr class=S56TBodyOddRow ><td  nowrap x:str style='mso-number-format:"\@"'>(-) MSG_MONTH_3&nbsp;14</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>CHIP II</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>14/03/2021 10:45:54</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>14/03/2021 10:46:03</td>
+<td  nowrap  align=right x:str style='mso-number-format:"\@"'>0M</td>
+<td  nowrap x:str style='mso-number-format:"\@"'><img_ src='../images/stops.gif'></td>
+<td  nowrap x:str style='mso-number-format:"\@"'>On</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>Lobitos Piura, PER</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>Flotante LO</td>
+<td  nowrap x:str style='mso-number-format:"\@"'><p style="text-align:left;">-4.4369550</p></td>
+<td  nowrap x:str style='mso-number-format:"\@"'><p style="text-align:left;">-81.3204449</p></td>
+<td  nowrap  align=right x:str style='mso-number-format:"\@"'>27.19</td>
+<td  nowrap  align=right x:str style='mso-number-format:"\@"'>27.23</td>
+</tr><tr><td  nowrap x:str style='mso-number-format:"\@"'>(-) MSG_MONTH_3&nbsp;14</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>CHIP II</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>14/03/2021 10:46:12</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>14/03/2021 11:20:00</td>
+<td  nowrap  align=right x:str style='mso-number-format:"\@"'>34M</td>
+<td  nowrap x:str style='mso-number-format:"\@"'><img_ src='../images/stops.gif'></td>
+<td  nowrap x:str style='mso-number-format:"\@"'>On</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>Lobitos Piura, PER</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>Flotante LO</td>
+<td  nowrap x:str style='mso-number-format:"\@"'><p style="text-align:left;">-4.4366399</p></td>
+<td  nowrap x:str style='mso-number-format:"\@"'><p style="text-align:left;">-81.3200700</p></td>
+<td  nowrap  align=right x:str style='mso-number-format:"\@"'>27.26</td>
+<td  nowrap  align=right x:str style='mso-number-format:"\@"'>27.89</td>
+</tr><tr class=S56TBodyOddRow ><td  nowrap x:str style='mso-number-format:"\@"'>(-) MSG_MONTH_3&nbsp;14</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>CHIP II</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>14/03/2021 11:40:00</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>14/03/2021 11:43:09</td>
+<td  nowrap  align=right x:str style='mso-number-format:"\@"'>3M</td>
+<td  nowrap x:str style='mso-number-format:"\@"'><img_ src='../images/stops.gif'></td>
+<td  nowrap x:str style='mso-number-format:"\@"'>On</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>Lobitos Piura, PER</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>LO10</td>
+<td  nowrap x:str style='mso-number-format:"\@"'><p style="text-align:left;">-4.4645849</p></td>
+<td  nowrap x:str style='mso-number-format:"\@"'><p style="text-align:left;">-81.3496050</p></td>
+<td  nowrap  align=right x:str style='mso-number-format:"\@"'>32.42</td>
+<td  nowrap  align=right x:str style='mso-number-format:"\@"'>32.65</td>
+</tr><tr><td  nowrap x:str style='mso-number-format:"\@"'>(-) MSG_MONTH_3&nbsp;14</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>CHIP II</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>14/03/2021 11:49:45</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>14/03/2021 11:51:00</td>
+<td  nowrap  align=right x:str style='mso-number-format:"\@"'>1M</td>
+<td  nowrap x:str style='mso-number-format:"\@"'><img_ src='../images/stops.gif'></td>
+<td  nowrap x:str style='mso-number-format:"\@"'>On</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>Lobitos Piura, PER</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>LO14</td>
+<td  nowrap x:str style='mso-number-format:"\@"'><p style="text-align:left;">-4.4659807</p></td>
+<td  nowrap x:str style='mso-number-format:"\@"'><p style="text-align:left;">-81.3355518</p></td>
+<td  nowrap  align=right x:str style='mso-number-format:"\@"'>34.2</td>
+<td  nowrap  align=right x:str style='mso-number-format:"\@"'>34.31</td>
+</tr><tr class=S56TBodyOddRow ><td  nowrap x:str style='mso-number-format:"\@"'>(-) MSG_MONTH_3&nbsp;14</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>CHIP II</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>14/03/2021 12:02:48</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>14/03/2021 12:04:18</td>
+<td  nowrap  align=right x:str style='mso-number-format:"\@"'>2M</td>
+<td  nowrap x:str style='mso-number-format:"\@"'><img_ src='../images/stops.gif'></td>
+<td  nowrap x:str style='mso-number-format:"\@"'>On</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>Lobitos Piura, PER</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>ZZ</td>
+<td  nowrap x:str style='mso-number-format:"\@"'><p style="text-align:left;">-4.4462099</p></td>
+<td  nowrap x:str style='mso-number-format:"\@"'><p style="text-align:left;">-81.3170999</p></td>
+<td  nowrap  align=right x:str style='mso-number-format:"\@"'>37.32</td>
+<td  nowrap  align=right x:str style='mso-number-format:"\@"'>37.44</td>
+</tr><tr><td  nowrap x:str style='mso-number-format:"\@"'>(-) MSG_MONTH_3&nbsp;14</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>CHIP II</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>14/03/2021 12:08:18</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>14/03/2021 12:17:57</td>
+<td  nowrap  align=right x:str style='mso-number-format:"\@"'>10M</td>
+<td  nowrap x:str style='mso-number-format:"\@"'><img_ src='../images/stops.gif'></td>
+<td  nowrap x:str style='mso-number-format:"\@"'>On</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>Lobitos Piura, PER</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>Flotante LO</td>
+<td  nowrap x:str style='mso-number-format:"\@"'><p style="text-align:left;">-4.4368500</p></td>
+<td  nowrap x:str style='mso-number-format:"\@"'><p style="text-align:left;">-81.3196049</p></td>
+<td  nowrap  align=right x:str style='mso-number-format:"\@"'>38.43</td>
+<td  nowrap  align=right x:str style='mso-number-format:"\@"'>38.68</td>
+</tr><tr class=S56TBodyOddRow ><td  nowrap x:str style='mso-number-format:"\@"'>(-) MSG_MONTH_3&nbsp;14</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>CHIP II</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>14/03/2021 12:19:06</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>14/03/2021 12:20:27</td>
+<td  nowrap  align=right x:str style='mso-number-format:"\@"'>1M</td>
+<td  nowrap x:str style='mso-number-format:"\@"'><img_ src='../images/stops.gif'></td>
+<td  nowrap x:str style='mso-number-format:"\@"'>On</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>Lobitos Piura, PER</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>CAMPO  LOBITOS</td>
+<td  nowrap x:str style='mso-number-format:"\@"'><p style="text-align:left;">-4.4332950</p></td>
+<td  nowrap x:str style='mso-number-format:"\@"'><p style="text-align:left;">-81.3195899</p></td>
+<td  nowrap  align=right x:str style='mso-number-format:"\@"'>38.94</td>
+<td  nowrap  align=right x:str style='mso-number-format:"\@"'>39.15</td>
+</tr><tr><td  nowrap x:str style='mso-number-format:"\@"'>(-) MSG_MONTH_3&nbsp;14</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>CHIP II</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>14/03/2021 12:20:48</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>14/03/2021 12:21:36</td>
+<td  nowrap  align=right x:str style='mso-number-format:"\@"'>1M</td>
+<td  nowrap x:str style='mso-number-format:"\@"'><img_ src='../images/stops.gif'></td>
+<td  nowrap x:str style='mso-number-format:"\@"'>On</td>
+<td  nowrap x:str style='mso-number-format:"\@"'></td>
+<td  nowrap x:str style='mso-number-format:"\@"'>CAMPO  LOBITOS</td>
+<td  nowrap x:str style='mso-number-format:"\@"'><p style="text-align:left;">-4.4308350</p></td>
+<td  nowrap x:str style='mso-number-format:"\@"'><p style="text-align:left;">-81.3194999</p></td>
+<td  nowrap  align=right x:str style='mso-number-format:"\@"'>39.21</td>
+<td  nowrap  align=right x:str style='mso-number-format:"\@"'>39.31</td>
+</tr><tr class=S56TBodyOddRow ><td  nowrap x:str style='mso-number-format:"\@"'>(-) MSG_MONTH_3&nbsp;14</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>CHIP II</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>14/03/2021 12:22:18</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>14/03/2021 12:33:33</td>
+<td  nowrap  align=right x:str style='mso-number-format:"\@"'>11M</td>
+<td  nowrap x:str style='mso-number-format:"\@"'><img_ src='../images/stops.gif'></td>
+<td  nowrap x:str style='mso-number-format:"\@"'>On</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>Lobitos Piura, PER</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>CAMPO  LOBITOS</td>
+<td  nowrap x:str style='mso-number-format:"\@"'><p style="text-align:left;">-4.4287500</p></td>
+<td  nowrap x:str style='mso-number-format:"\@"'><p style="text-align:left;">-81.3190949</p></td>
+<td  nowrap  align=right x:str style='mso-number-format:"\@"'>39.45</td>
+<td  nowrap  align=right x:str style='mso-number-format:"\@"'>40.05</td>
+</tr><tr><td  nowrap x:str style='mso-number-format:"\@"'>(-) MSG_MONTH_3&nbsp;14</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>CHIP II</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>14/03/2021 12:35:42</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>14/03/2021 12:38:27</td>
+<td  nowrap  align=right x:str style='mso-number-format:"\@"'>3M</td>
+<td  nowrap x:str style='mso-number-format:"\@"'><img_ src='../images/stops.gif'></td>
+<td  nowrap x:str style='mso-number-format:"\@"'>On</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>Lobitos Piura, PER</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>Flotante LO</td>
+<td  nowrap x:str style='mso-number-format:"\@"'><p style="text-align:left;">-4.4357249</p></td>
+<td  nowrap x:str style='mso-number-format:"\@"'><p style="text-align:left;">-81.3192449</p></td>
+<td  nowrap  align=right x:str style='mso-number-format:"\@"'>40.53</td>
+<td  nowrap  align=right x:str style='mso-number-format:"\@"'>40.75</td>
+</tr><tr class=S56TBodyOddRow ><td  nowrap x:str style='mso-number-format:"\@"'>(-) MSG_MONTH_3&nbsp;14</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>CHIP II</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>14/03/2021 12:53:48</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>14/03/2021 12:57:24</td>
+<td  nowrap  align=right x:str style='mso-number-format:"\@"'>4M</td>
+<td  nowrap x:str style='mso-number-format:"\@"'><img_ src='../images/stops.gif'></td>
+<td  nowrap x:str style='mso-number-format:"\@"'>On</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>Lobitos Piura, PER</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>PP</td>
+<td  nowrap x:str style='mso-number-format:"\@"'><p style="text-align:left;">-4.4679899</p></td>
+<td  nowrap x:str style='mso-number-format:"\@"'><p style="text-align:left;">-81.3201749</p></td>
+<td  nowrap  align=right x:str style='mso-number-format:"\@"'>44.25</td>
+<td  nowrap  align=right x:str style='mso-number-format:"\@"'>44.43</td>
+</tr><tr><td  nowrap x:str style='mso-number-format:"\@"'>(-) MSG_MONTH_3&nbsp;14</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>CHIP II</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>14/03/2021 13:04:33</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>14/03/2021 13:06:24</td>
+<td  nowrap  align=right x:str style='mso-number-format:"\@"'>2M</td>
+<td  nowrap x:str style='mso-number-format:"\@"'><img_ src='../images/stops.gif'></td>
+<td  nowrap x:str style='mso-number-format:"\@"'>On</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>Lobitos Piura, PER</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>LO14</td>
+<td  nowrap x:str style='mso-number-format:"\@"'><p style="text-align:left;">-4.4661149</p></td>
+<td  nowrap x:str style='mso-number-format:"\@"'><p style="text-align:left;">-81.3351299</p></td>
+<td  nowrap  align=right x:str style='mso-number-format:"\@"'>46.11</td>
+<td  nowrap  align=right x:str style='mso-number-format:"\@"'>46.26</td>
+</tr><tr class=S56TBodyOddRow ><td  nowrap x:str style='mso-number-format:"\@"'>(-) MSG_MONTH_3&nbsp;14</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>CHIP II</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>14/03/2021 13:13:15</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>14/03/2021 13:18:06</td>
+<td  nowrap  align=right x:str style='mso-number-format:"\@"'>5M</td>
+<td  nowrap x:str style='mso-number-format:"\@"'><img_ src='../images/stops.gif'></td>
+<td  nowrap x:str style='mso-number-format:"\@"'>On</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>Lobitos Piura, PER</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>LO10</td>
+<td  nowrap x:str style='mso-number-format:"\@"'><p style="text-align:left;">-4.4656649</p></td>
+<td  nowrap x:str style='mso-number-format:"\@"'><p style="text-align:left;">-81.3491550</p></td>
+<td  nowrap  align=right x:str style='mso-number-format:"\@"'>47.82</td>
+<td  nowrap  align=right x:str style='mso-number-format:"\@"'>48.19</td>
+</tr><tr><td  nowrap x:str style='mso-number-format:"\@"'>(-) MSG_MONTH_3&nbsp;14</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>CHIP II</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>14/03/2021 13:24:48</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>14/03/2021 13:24:54</td>
+<td  nowrap  align=right x:str style='mso-number-format:"\@"'>0M</td>
+<td  nowrap x:str style='mso-number-format:"\@"'><img_ src='../images/stops.gif'></td>
+<td  nowrap x:str style='mso-number-format:"\@"'>On</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>Lobitos Piura, PER</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>CAMPO  LOBITOS</td>
+<td  nowrap x:str style='mso-number-format:"\@"'><p style="text-align:left;">-4.4670575</p></td>
+<td  nowrap x:str style='mso-number-format:"\@"'><p style="text-align:left;">-81.3626239</p></td>
+<td  nowrap  align=right x:str style='mso-number-format:"\@"'>49.65</td>
+<td  nowrap  align=right x:str style='mso-number-format:"\@"'>49.66</td>
+</tr><tr class=S56TBodyOddRow ><td  nowrap x:str style='mso-number-format:"\@"'>(-) MSG_MONTH_3&nbsp;14</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>CHIP II</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>14/03/2021 13:26:24</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>14/03/2021 13:28:57</td>
+<td  nowrap  align=right x:str style='mso-number-format:"\@"'>3M</td>
+<td  nowrap x:str style='mso-number-format:"\@"'><img_ src='../images/stops.gif'></td>
+<td  nowrap x:str style='mso-number-format:"\@"'>On</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>Lobitos Piura, PER</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>LO16</td>
+<td  nowrap x:str style='mso-number-format:"\@"'><p style="text-align:left;">-4.4684400</p></td>
+<td  nowrap x:str style='mso-number-format:"\@"'><p style="text-align:left;">-81.3652500</p></td>
+<td  nowrap  align=right x:str style='mso-number-format:"\@"'>49.95</td>
+<td  nowrap  align=right x:str style='mso-number-format:"\@"'>50.17</td>
+</tr><tr><td  nowrap x:str style='mso-number-format:"\@"'>(-) MSG_MONTH_3&nbsp;14</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>CHIP II</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>14/03/2021 13:37:18</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>14/03/2021 13:38:48</td>
+<td  nowrap  align=right x:str style='mso-number-format:"\@"'>2M</td>
+<td  nowrap x:str style='mso-number-format:"\@"'><img_ src='../images/stops.gif'></td>
+<td  nowrap x:str style='mso-number-format:"\@"'>On</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>Lobitos Piura, PER</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>LO13</td>
+<td  nowrap x:str style='mso-number-format:"\@"'><p style="text-align:left;">-4.4801343</p></td>
+<td  nowrap x:str style='mso-number-format:"\@"'><p style="text-align:left;">-81.3520255</p></td>
+<td  nowrap  align=right x:str style='mso-number-format:"\@"'>52.08</td>
+<td  nowrap  align=right x:str style='mso-number-format:"\@"'>52.19</td>
+</tr><tr class=S56TBodyOddRow ><td  nowrap x:str style='mso-number-format:"\@"'>(-) MSG_MONTH_3&nbsp;14</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>CHIP II</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>14/03/2021 13:59:57</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>14/03/2021 15:11:27</td>
+<td  nowrap  align=right x:str style='mso-number-format:"\@"'>1H 12M</td>
+<td  nowrap x:str style='mso-number-format:"\@"'><img_ src='../images/stops.gif'></td>
+<td  nowrap x:str style='mso-number-format:"\@"'>On</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>Lobitos Piura, PER</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>ZZ</td>
+<td  nowrap x:str style='mso-number-format:"\@"'><p style="text-align:left;">-4.4463216</p></td>
+<td  nowrap x:str style='mso-number-format:"\@"'><p style="text-align:left;">-81.3172095</p></td>
+<td  nowrap  align=right x:str style='mso-number-format:"\@"'>57.73</td>
+<td  nowrap  align=right x:str style='mso-number-format:"\@"'>58.2</td>
+</tr><tr><td  nowrap x:str style='mso-number-format:"\@"'>(-) MSG_MONTH_3&nbsp;14</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>CHIP II</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>14/03/2021 15:12:45</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>14/03/2021 15:12:57</td>
+<td  nowrap  align=right x:str style='mso-number-format:"\@"'>0M</td>
+<td  nowrap x:str style='mso-number-format:"\@"'><img_ src='../images/stops.gif'></td>
+<td  nowrap x:str style='mso-number-format:"\@"'>On</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>Lobitos Piura, PER</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>CAMPO  LOBITOS</td>
+<td  nowrap x:str style='mso-number-format:"\@"'><p style="text-align:left;">-4.4478900</p></td>
+<td  nowrap x:str style='mso-number-format:"\@"'><p style="text-align:left;">-81.3195899</p></td>
+<td  nowrap  align=right x:str style='mso-number-format:"\@"'>58.47</td>
+<td  nowrap  align=right x:str style='mso-number-format:"\@"'>58.51</td>
+</tr><tr class=S56TBodyOddRow ><td  nowrap x:str style='mso-number-format:"\@"'>(-) MSG_MONTH_3&nbsp;14</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>CHIP II</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>14/03/2021 15:13:06</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>14/03/2021 15:13:12</td>
+<td  nowrap  align=right x:str style='mso-number-format:"\@"'>0M</td>
+<td  nowrap x:str style='mso-number-format:"\@"'><img_ src='../images/stops.gif'></td>
+<td  nowrap x:str style='mso-number-format:"\@"'>On</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>Lobitos Piura, PER</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>CAMPO  LOBITOS</td>
+<td  nowrap x:str style='mso-number-format:"\@"'><p style="text-align:left;">-4.4483100</p></td>
+<td  nowrap x:str style='mso-number-format:"\@"'><p style="text-align:left;">-81.3199800</p></td>
+<td  nowrap  align=right x:str style='mso-number-format:"\@"'>58.53</td>
+<td  nowrap  align=right x:str style='mso-number-format:"\@"'>58.57</td>
+</tr><tr><td  nowrap x:str style='mso-number-format:"\@"'>(-) MSG_MONTH_3&nbsp;14</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>CHIP II</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>14/03/2021 15:22:06</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>14/03/2021 15:22:12</td>
+<td  nowrap  align=right x:str style='mso-number-format:"\@"'>0M</td>
+<td  nowrap x:str style='mso-number-format:"\@"'><img_ src='../images/stops.gif'></td>
+<td  nowrap x:str style='mso-number-format:"\@"'>On</td>
+<td  nowrap x:str style='mso-number-format:"\@"'></td>
+<td  nowrap x:str style='mso-number-format:"\@"'>CAMPO  LOBITOS</td>
+<td  nowrap x:str style='mso-number-format:"\@"'><p style="text-align:left;">-4.4609100</p></td>
+<td  nowrap x:str style='mso-number-format:"\@"'><p style="text-align:left;">-81.3311999</p></td>
+<td  nowrap  align=right x:str style='mso-number-format:"\@"'>60.41</td>
+<td  nowrap  align=right x:str style='mso-number-format:"\@"'>60.45</td>
+</tr><tr class=S56TBodyOddRow ><td  nowrap x:str style='mso-number-format:"\@"'>(-) MSG_MONTH_3&nbsp;14</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>CHIP II</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>14/03/2021 15:24:27</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>14/03/2021 15:24:36</td>
+<td  nowrap  align=right x:str style='mso-number-format:"\@"'>0M</td>
+<td  nowrap x:str style='mso-number-format:"\@"'><img_ src='../images/stops.gif'></td>
+<td  nowrap x:str style='mso-number-format:"\@"'>On</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>Lobitos Piura, PER</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>CAMPO  LOBITOS</td>
+<td  nowrap x:str style='mso-number-format:"\@"'><p style="text-align:left;">-4.4642249</p></td>
+<td  nowrap x:str style='mso-number-format:"\@"'><p style="text-align:left;">-81.3341399</p></td>
+<td  nowrap  align=right x:str style='mso-number-format:"\@"'>60.9</td>
+<td  nowrap  align=right x:str style='mso-number-format:"\@"'>60.94</td>
+</tr><tr><td  nowrap x:str style='mso-number-format:"\@"'>(-) MSG_MONTH_3&nbsp;14</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>CHIP II</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>14/03/2021 15:25:12</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>14/03/2021 15:32:36</td>
+<td  nowrap  align=right x:str style='mso-number-format:"\@"'>7M</td>
+<td  nowrap x:str style='mso-number-format:"\@"'><img_ src='../images/stops.gif'></td>
+<td  nowrap x:str style='mso-number-format:"\@"'>On</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>Lobitos Piura, PER</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>LO14</td>
+<td  nowrap x:str style='mso-number-format:"\@"'><p style="text-align:left;">-4.4653840</p></td>
+<td  nowrap x:str style='mso-number-format:"\@"'><p style="text-align:left;">-81.3349374</p></td>
+<td  nowrap  align=right x:str style='mso-number-format:"\@"'>61.1</td>
+<td  nowrap  align=right x:str style='mso-number-format:"\@"'>61.37</td>
+</tr><tr class=S56TBodyOddRow ><td  nowrap x:str style='mso-number-format:"\@"'>(-) MSG_MONTH_3&nbsp;14</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>CHIP II</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>14/03/2021 15:32:57</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>14/03/2021 15:33:45</td>
+<td  nowrap  align=right x:str style='mso-number-format:"\@"'>1M</td>
+<td  nowrap x:str style='mso-number-format:"\@"'><img_ src='../images/stops.gif'></td>
+<td  nowrap x:str style='mso-number-format:"\@"'>On</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>Lobitos Piura, PER</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>CAMPO  LOBITOS</td>
+<td  nowrap x:str style='mso-number-format:"\@"'><p style="text-align:left;">-4.4647199</p></td>
+<td  nowrap x:str style='mso-number-format:"\@"'><p style="text-align:left;">-81.3355650</p></td>
+<td  nowrap  align=right x:str style='mso-number-format:"\@"'>61.44</td>
+<td  nowrap  align=right x:str style='mso-number-format:"\@"'>61.58</td>
+</tr><tr><td  nowrap x:str style='mso-number-format:"\@"'>(-) MSG_MONTH_3&nbsp;14</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>CHIP II</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>14/03/2021 15:33:57</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>14/03/2021 15:34:45</td>
+<td  nowrap  align=right x:str style='mso-number-format:"\@"'>1M</td>
+<td  nowrap x:str style='mso-number-format:"\@"'><img_ src='../images/stops.gif'></td>
+<td  nowrap x:str style='mso-number-format:"\@"'>On</td>
+<td  nowrap x:str style='mso-number-format:"\@"'></td>
+<td  nowrap x:str style='mso-number-format:"\@"'>CAMPO  LOBITOS</td>
+<td  nowrap x:str style='mso-number-format:"\@"'><p style="text-align:left;">-4.4659800</p></td>
+<td  nowrap x:str style='mso-number-format:"\@"'><p style="text-align:left;">-81.3365999</p></td>
+<td  nowrap  align=right x:str style='mso-number-format:"\@"'>61.62</td>
+<td  nowrap  align=right x:str style='mso-number-format:"\@"'>61.78</td>
+</tr><tr class=S56TBodyOddRow ><td  nowrap x:str style='mso-number-format:"\@"'>(-) MSG_MONTH_3&nbsp;14</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>CHIP II</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>14/03/2021 15:34:57</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>14/03/2021 15:35:06</td>
+<td  nowrap  align=right x:str style='mso-number-format:"\@"'>0M</td>
+<td  nowrap x:str style='mso-number-format:"\@"'><img_ src='../images/stops.gif'></td>
+<td  nowrap x:str style='mso-number-format:"\@"'>On</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>Lobitos Piura, PER</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>CAMPO  LOBITOS</td>
+<td  nowrap x:str style='mso-number-format:"\@"'><p style="text-align:left;">-4.4671050</p></td>
+<td  nowrap x:str style='mso-number-format:"\@"'><p style="text-align:left;">-81.3379199</p></td>
+<td  nowrap  align=right x:str style='mso-number-format:"\@"'>61.82</td>
+<td  nowrap  align=right x:str style='mso-number-format:"\@"'>61.85</td>
+</tr><tr><td  nowrap x:str style='mso-number-format:"\@"'>(-) MSG_MONTH_3&nbsp;14</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>CHIP II</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>14/03/2021 15:35:15</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>14/03/2021 15:35:27</td>
+<td  nowrap  align=right x:str style='mso-number-format:"\@"'>0M</td>
+<td  nowrap x:str style='mso-number-format:"\@"'><img_ src='../images/stops.gif'></td>
+<td  nowrap x:str style='mso-number-format:"\@"'>On</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>Lobitos Piura, PER</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>CAMPO  LOBITOS</td>
+<td  nowrap x:str style='mso-number-format:"\@"'><p style="text-align:left;">-4.4675359</p></td>
+<td  nowrap x:str style='mso-number-format:"\@"'><p style="text-align:left;">-81.3384063</p></td>
+<td  nowrap  align=right x:str style='mso-number-format:"\@"'>61.88</td>
+<td  nowrap  align=right x:str style='mso-number-format:"\@"'>61.92</td>
+</tr><tr class=S56TBodyOddRow ><td  nowrap x:str style='mso-number-format:"\@"'>(-) MSG_MONTH_3&nbsp;14</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>CHIP II</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>14/03/2021 15:35:45</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>14/03/2021 15:36:06</td>
+<td  nowrap  align=right x:str style='mso-number-format:"\@"'>0M</td>
+<td  nowrap x:str style='mso-number-format:"\@"'><img_ src='../images/stops.gif'></td>
+<td  nowrap x:str style='mso-number-format:"\@"'>On</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>Lobitos Piura, PER</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>CAMPO  LOBITOS</td>
+<td  nowrap x:str style='mso-number-format:"\@"'><p style="text-align:left;">-4.4681400</p></td>
+<td  nowrap x:str style='mso-number-format:"\@"'><p style="text-align:left;">-81.3390299</p></td>
+<td  nowrap  align=right x:str style='mso-number-format:"\@"'>61.98</td>
+<td  nowrap  align=right x:str style='mso-number-format:"\@"'>62.05</td>
+</tr><tr><td  nowrap x:str style='mso-number-format:"\@"'>(-) MSG_MONTH_3&nbsp;14</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>CHIP II</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>14/03/2021 15:38:06</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>14/03/2021 15:38:15</td>
+<td  nowrap  align=right x:str style='mso-number-format:"\@"'>0M</td>
+<td  nowrap x:str style='mso-number-format:"\@"'><img_ src='../images/stops.gif'></td>
+<td  nowrap x:str style='mso-number-format:"\@"'>On</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>Lobitos Piura, PER</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>CAMPO  LOBITOS</td>
+<td  nowrap x:str style='mso-number-format:"\@"'><p style="text-align:left;">-4.4708549</p></td>
+<td  nowrap x:str style='mso-number-format:"\@"'><p style="text-align:left;">-81.3423749</p></td>
+<td  nowrap  align=right x:str style='mso-number-format:"\@"'>62.46</td>
+<td  nowrap  align=right x:str style='mso-number-format:"\@"'>62.5</td>
+</tr><tr class=S56TBodyOddRow ><td  nowrap x:str style='mso-number-format:"\@"'>(-) MSG_MONTH_3&nbsp;14</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>CHIP II</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>14/03/2021 15:45:06</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>14/03/2021 15:56:30</td>
+<td  nowrap  align=right x:str style='mso-number-format:"\@"'>11M</td>
+<td  nowrap x:str style='mso-number-format:"\@"'><img_ src='../images/stops.gif'></td>
+<td  nowrap x:str style='mso-number-format:"\@"'>On</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>Lobitos Piura, PER</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>LO13</td>
+<td  nowrap x:str style='mso-number-format:"\@"'><p style="text-align:left;">-4.4795400</p></td>
+<td  nowrap x:str style='mso-number-format:"\@"'><p style="text-align:left;">-81.3519149</p></td>
+<td  nowrap  align=right x:str style='mso-number-format:"\@"'>63.9</td>
+<td  nowrap  align=right x:str style='mso-number-format:"\@"'>64.28</td>
+</tr><tr><td  nowrap x:str style='mso-number-format:"\@"'>(-) MSG_MONTH_3&nbsp;14</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>CHIP II</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>14/03/2021 15:59:30</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>14/03/2021 16:16:42</td>
+<td  nowrap  align=right x:str style='mso-number-format:"\@"'>17M</td>
+<td  nowrap x:str style='mso-number-format:"\@"'><img_ src='../images/stops.gif'></td>
+<td  nowrap x:str style='mso-number-format:"\@"'>On</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>Lobitos Piura, PER</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>CAMPO  LOBITOS</td>
+<td  nowrap x:str style='mso-number-format:"\@"'><p style="text-align:left;">-4.4851087</p></td>
+<td  nowrap x:str style='mso-number-format:"\@"'><p style="text-align:left;">-81.3478655</p></td>
+<td  nowrap  align=right x:str style='mso-number-format:"\@"'>64.92</td>
+<td  nowrap  align=right x:str style='mso-number-format:"\@"'>65.79</td>
+</tr><tr class=S56TBodyOddRow ><td  nowrap x:str style='mso-number-format:"\@"'>(-) MSG_MONTH_3&nbsp;14</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>CHIP II</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>14/03/2021 16:17:03</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>14/03/2021 16:17:12</td>
+<td  nowrap  align=right x:str style='mso-number-format:"\@"'>0M</td>
+<td  nowrap x:str style='mso-number-format:"\@"'><img_ src='../images/stops.gif'></td>
+<td  nowrap x:str style='mso-number-format:"\@"'>On</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>Lobitos Piura, PER</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>CAMPO  LOBITOS</td>
+<td  nowrap x:str style='mso-number-format:"\@"'><p style="text-align:left;">-4.4905499</p></td>
+<td  nowrap x:str style='mso-number-format:"\@"'><p style="text-align:left;">-81.3428550</p></td>
+<td  nowrap  align=right x:str style='mso-number-format:"\@"'>65.86</td>
+<td  nowrap  align=right x:str style='mso-number-format:"\@"'>65.89</td>
+</tr><tr><td  nowrap x:str style='mso-number-format:"\@"'>(-) MSG_MONTH_3&nbsp;14</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>CHIP II</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>14/03/2021 16:20:33</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>14/03/2021 16:41:33</td>
+<td  nowrap  align=right x:str style='mso-number-format:"\@"'>21M</td>
+<td  nowrap x:str style='mso-number-format:"\@"'><img_ src='../images/stops.gif'></td>
+<td  nowrap x:str style='mso-number-format:"\@"'>On</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>Lobitos Piura, PER</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>LO18</td>
+<td  nowrap x:str style='mso-number-format:"\@"'><p style="text-align:left;">-4.4960399</p></td>
+<td  nowrap x:str style='mso-number-format:"\@"'><p style="text-align:left;">-81.3392249</p></td>
+<td  nowrap  align=right x:str style='mso-number-format:"\@"'>66.58</td>
+<td  nowrap  align=right x:str style='mso-number-format:"\@"'>66.86</td>
+</tr><tr class=S56TBodyOddRow ><td  nowrap x:str style='mso-number-format:"\@"'>(-) MSG_MONTH_3&nbsp;14</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>CHIP II</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>14/03/2021 16:50:39</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>14/03/2021 16:52:18</td>
+<td  nowrap  align=right x:str style='mso-number-format:"\@"'>2M</td>
+<td  nowrap x:str style='mso-number-format:"\@"'><img_ src='../images/stops.gif'></td>
+<td  nowrap x:str style='mso-number-format:"\@"'>On</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>Lobitos Piura, PER</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>LO13</td>
+<td  nowrap x:str style='mso-number-format:"\@"'><p style="text-align:left;">-4.4806200</p></td>
+<td  nowrap x:str style='mso-number-format:"\@"'><p style="text-align:left;">-81.3519149</p></td>
+<td  nowrap  align=right x:str style='mso-number-format:"\@"'>69.12</td>
+<td  nowrap  align=right x:str style='mso-number-format:"\@"'>69.2</td>
+</tr><tr><td  nowrap x:str style='mso-number-format:"\@"'>(-) MSG_MONTH_3&nbsp;14</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>CHIP II</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>14/03/2021 16:59:36</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>14/03/2021 17:28:09</td>
+<td  nowrap  align=right x:str style='mso-number-format:"\@"'>29M</td>
+<td  nowrap x:str style='mso-number-format:"\@"'><img_ src='../images/stops.gif'></td>
+<td  nowrap x:str style='mso-number-format:"\@"'>On</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>Lobitos Piura, PER</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>LO16</td>
+<td  nowrap x:str style='mso-number-format:"\@"'><p style="text-align:left;">-4.4691456</p></td>
+<td  nowrap x:str style='mso-number-format:"\@"'><p style="text-align:left;">-81.3657984</p></td>
+<td  nowrap  align=right x:str style='mso-number-format:"\@"'>71.15</td>
+<td  nowrap  align=right x:str style='mso-number-format:"\@"'>71.39</td>
+</tr><tr class=S56TBodyOddRow ><td  nowrap x:str style='mso-number-format:"\@"'>(-) MSG_MONTH_3&nbsp;14</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>CHIP II</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>14/03/2021 17:42:39</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>14/03/2021 17:44:57</td>
+<td  nowrap  align=right x:str style='mso-number-format:"\@"'>2M</td>
+<td  nowrap x:str style='mso-number-format:"\@"'><img_ src='../images/stops.gif'></td>
+<td  nowrap x:str style='mso-number-format:"\@"'>On</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>Lobitos Piura, PER</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>LO14</td>
+<td  nowrap x:str style='mso-number-format:"\@"'><p style="text-align:left;">-4.4657549</p></td>
+<td  nowrap x:str style='mso-number-format:"\@"'><p style="text-align:left;">-81.3354899</p></td>
+<td  nowrap  align=right x:str style='mso-number-format:"\@"'>74.74</td>
+<td  nowrap  align=right x:str style='mso-number-format:"\@"'>74.91</td>
+</tr><tr><td  nowrap x:str style='mso-number-format:"\@"'>(-) MSG_MONTH_3&nbsp;14</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>CHIP II</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>14/03/2021 17:45:09</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>14/03/2021 17:45:21</td>
+<td  nowrap  align=right x:str style='mso-number-format:"\@"'>0M</td>
+<td  nowrap x:str style='mso-number-format:"\@"'><img_ src='../images/stops.gif'></td>
+<td  nowrap x:str style='mso-number-format:"\@"'>On</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>Lobitos Piura, PER</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>LO14</td>
+<td  nowrap x:str style='mso-number-format:"\@"'><p style="text-align:left;">-4.4654591</p></td>
+<td  nowrap x:str style='mso-number-format:"\@"'><p style="text-align:left;">-81.3341439</p></td>
+<td  nowrap  align=right x:str style='mso-number-format:"\@"'>74.94</td>
+<td  nowrap  align=right x:str style='mso-number-format:"\@"'>74.97</td>
+</tr><tr class=S56TBodyOddRow ><td  nowrap x:str style='mso-number-format:"\@"'>(-) MSG_MONTH_3&nbsp;14</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>CHIP II</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>14/03/2021 17:52:21</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>14/03/2021 17:57:18</td>
+<td  nowrap  align=right x:str style='mso-number-format:"\@"'>5M</td>
+<td  nowrap x:str style='mso-number-format:"\@"'><img_ src='../images/stops.gif'></td>
+<td  nowrap x:str style='mso-number-format:"\@"'>On</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>Lobitos Piura, PER</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>PP</td>
+<td  nowrap x:str style='mso-number-format:"\@"'><p style="text-align:left;">-4.4680799</p></td>
+<td  nowrap x:str style='mso-number-format:"\@"'><p style="text-align:left;">-81.3204899</p></td>
+<td  nowrap  align=right x:str style='mso-number-format:"\@"'>76.52</td>
+<td  nowrap  align=right x:str style='mso-number-format:"\@"'>76.69</td>
+</tr><tr><td  nowrap x:str style='mso-number-format:"\@"'>(-) MSG_MONTH_3&nbsp;14</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>CHIP II</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>14/03/2021 18:09:57</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>14/03/2021 23:59:59</td>
+<td  nowrap  align=right x:str style='mso-number-format:"\@"'>5H 50M</td>
+<td  nowrap x:str style='mso-number-format:"\@"'><img_ src='../images/stops.gif'></td>
+<td  nowrap x:str style='mso-number-format:"\@"'>On</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>Lobitos Piura, PER</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>Flotante LO</td>
+<td  nowrap x:str style='mso-number-format:"\@"'><p style="text-align:left;">-4.4365049</p></td>
+<td  nowrap x:str style='mso-number-format:"\@"'><p style="text-align:left;">-81.3193500</p></td>
+<td  nowrap  align=right x:str style='mso-number-format:"\@"'>80.14</td>
+<td  nowrap  align=right x:str style='mso-number-format:"\@"'>80.51</td>
+</tr><tr class=S56TBodyOddRow ><td  nowrap x:str style='mso-number-format:"\@"'>(-) MSG_MONTH_3&nbsp;14</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>CHIRIBAY</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>14/03/2021 00:00:00</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>14/03/2021 23:59:59</td>
+<td  nowrap  align=right x:str style='mso-number-format:"\@"'>1D 0M</td>
+<td  nowrap x:str style='mso-number-format:"\@"'><img_ src='../images/stops.gif'></td>
+<td  nowrap x:str style='mso-number-format:"\@"'>On</td>
+<td  nowrap x:str style='mso-number-format:"\@"'></td>
+<td  nowrap x:str style='mso-number-format:"\@"'>CAMPO SAN PEDRO</td>
+<td  nowrap x:str style='mso-number-format:"\@"'><p style="text-align:left;">-5.5987679</p></td>
+<td  nowrap x:str style='mso-number-format:"\@"'><p style="text-align:left;">-81.0750847</p></td>
+<td  nowrap  align=right x:str style='mso-number-format:"\@"'>0</td>
+<td  nowrap  align=right x:str style='mso-number-format:"\@"'>5.46</td>
+</tr><tr><td  nowrap x:str style='mso-number-format:"\@"'>(-) MSG_MONTH_3&nbsp;14</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>D.VICTOR</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>14/03/2021 00:00:00</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>14/03/2021 01:58:55</td>
+<td  nowrap  align=right x:str style='mso-number-format:"\@"'>1H 59M</td>
+<td  nowrap x:str style='mso-number-format:"\@"'><img_ src='../images/parking.gif'></td>
+<td  nowrap x:str style='mso-number-format:"\@"'>Off</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>PI-100, Lobitos Piura, PER</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>CAMPO PEA NEGRA</td>
+<td  nowrap x:str style='mso-number-format:"\@"'><p style="text-align:left;">-4.3210666</p></td>
+<td  nowrap x:str style='mso-number-format:"\@"'><p style="text-align:left;">-81.2787665</p></td>
+<td  nowrap  align=right x:str style='mso-number-format:"\@"'>0</td>
+<td  nowrap  align=right x:str style='mso-number-format:"\@"'>0.08</td>
+</tr><tr class=S56TBodyOddRow ><td  nowrap x:str style='mso-number-format:"\@"'>(-) MSG_MONTH_3&nbsp;14</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>D.VICTOR</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>14/03/2021 02:08:57</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>14/03/2021 02:38:54</td>
+<td  nowrap  align=right x:str style='mso-number-format:"\@"'>30M</td>
+<td  nowrap x:str style='mso-number-format:"\@"'><img_ src='../images/stops.gif'></td>
+<td  nowrap x:str style='mso-number-format:"\@"'>On</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>PI-100, Lobitos Piura, PER</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>CAMPO PEA NEGRA</td>
+<td  nowrap x:str style='mso-number-format:"\@"'><p style="text-align:left;">-4.3210832</p></td>
+<td  nowrap x:str style='mso-number-format:"\@"'><p style="text-align:left;">-81.2787500</p></td>
+<td  nowrap  align=right x:str style='mso-number-format:"\@"'>0.08</td>
+<td  nowrap  align=right x:str style='mso-number-format:"\@"'>0.09</td>
+</tr><tr><td  nowrap x:str style='mso-number-format:"\@"'>(-) MSG_MONTH_3&nbsp;14</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>D.VICTOR</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>14/03/2021 02:48:57</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>14/03/2021 05:09:04</td>
+<td  nowrap  align=right x:str style='mso-number-format:"\@"'>2H 20M</td>
+<td  nowrap x:str style='mso-number-format:"\@"'><img_ src='../images/stops.gif'></td>
+<td  nowrap x:str style='mso-number-format:"\@"'>On</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>PI-100, Lobitos Piura, PER</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>CAMPO PEA NEGRA</td>
+<td  nowrap x:str style='mso-number-format:"\@"'><p style="text-align:left;">-4.3210998</p></td>
+<td  nowrap x:str style='mso-number-format:"\@"'><p style="text-align:left;">-81.2787665</p></td>
+<td  nowrap  align=right x:str style='mso-number-format:"\@"'>0.1</td>
+<td  nowrap  align=right x:str style='mso-number-format:"\@"'>0.18</td>
+</tr><tr class=S56TBodyOddRow ><td  nowrap x:str style='mso-number-format:"\@"'>(-) MSG_MONTH_3&nbsp;14</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>D.VICTOR</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>14/03/2021 05:28:31</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>14/03/2021 05:48:35</td>
+<td  nowrap  align=right x:str style='mso-number-format:"\@"'>20M</td>
+<td  nowrap x:str style='mso-number-format:"\@"'><img_ src='../images/stops.gif'></td>
+<td  nowrap x:str style='mso-number-format:"\@"'>On</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>PI-100, Lobitos Piura, PER</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>Flotante PN</td>
+<td  nowrap x:str style='mso-number-format:"\@"'><p style="text-align:left;">-4.3235165</p></td>
+<td  nowrap x:str style='mso-number-format:"\@"'><p style="text-align:left;">-81.2897832</p></td>
+<td  nowrap  align=right x:str style='mso-number-format:"\@"'>1.55</td>
+<td  nowrap  align=right x:str style='mso-number-format:"\@"'>1.68</td>
+</tr><tr><td  nowrap x:str style='mso-number-format:"\@"'>(-) MSG_MONTH_3&nbsp;14</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>D.VICTOR</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>14/03/2021 05:58:34</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>14/03/2021 08:18:36</td>
+<td  nowrap  align=right x:str style='mso-number-format:"\@"'>2H 20M</td>
+<td  nowrap x:str style='mso-number-format:"\@"'><img_ src='../images/stops.gif'></td>
+<td  nowrap x:str style='mso-number-format:"\@"'>On</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>PI-100, Lobitos Piura, PER</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>Flotante PN</td>
+<td  nowrap x:str style='mso-number-format:"\@"'><p style="text-align:left;">-4.3235000</p></td>
+<td  nowrap x:str style='mso-number-format:"\@"'><p style="text-align:left;">-81.2897832</p></td>
+<td  nowrap  align=right x:str style='mso-number-format:"\@"'>1.68</td>
+<td  nowrap  align=right x:str style='mso-number-format:"\@"'>2.04</td>
+</tr><tr class=S56TBodyOddRow ><td  nowrap x:str style='mso-number-format:"\@"'>(-) MSG_MONTH_3&nbsp;14</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>D.VICTOR</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>14/03/2021 09:18:44</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>14/03/2021 09:28:41</td>
+<td  nowrap  align=right x:str style='mso-number-format:"\@"'>10M</td>
+<td  nowrap x:str style='mso-number-format:"\@"'><img_ src='../images/stops.gif'></td>
+<td  nowrap x:str style='mso-number-format:"\@"'>On</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>PI-100, Lobitos Piura, PER</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>Flotante PN</td>
+<td  nowrap x:str style='mso-number-format:"\@"'><p style="text-align:left;">-4.3247499</p></td>
+<td  nowrap x:str style='mso-number-format:"\@"'><p style="text-align:left;">-81.2879831</p></td>
+<td  nowrap  align=right x:str style='mso-number-format:"\@"'>4.45</td>
+<td  nowrap  align=right x:str style='mso-number-format:"\@"'>5.29</td>
+</tr><tr><td  nowrap x:str style='mso-number-format:"\@"'>(-) MSG_MONTH_3&nbsp;14</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>D.VICTOR</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>14/03/2021 09:38:37</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>14/03/2021 10:08:42</td>
+<td  nowrap  align=right x:str style='mso-number-format:"\@"'>30M</td>
+<td  nowrap x:str style='mso-number-format:"\@"'><img_ src='../images/stops.gif'></td>
+<td  nowrap x:str style='mso-number-format:"\@"'>On</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>PI-100, Lobitos Piura, PER</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>CAMPO PEA NEGRA</td>
+<td  nowrap x:str style='mso-number-format:"\@"'><p style="text-align:left;">-4.3279332</p></td>
+<td  nowrap x:str style='mso-number-format:"\@"'><p style="text-align:left;">-81.2866664</p></td>
+<td  nowrap  align=right x:str style='mso-number-format:"\@"'>5.76</td>
+<td  nowrap  align=right x:str style='mso-number-format:"\@"'>5.88</td>
+</tr><tr class=S56TBodyOddRow ><td  nowrap x:str style='mso-number-format:"\@"'>(-) MSG_MONTH_3&nbsp;14</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>D.VICTOR</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>14/03/2021 10:18:45</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>14/03/2021 11:08:45</td>
+<td  nowrap  align=right x:str style='mso-number-format:"\@"'>50M</td>
+<td  nowrap x:str style='mso-number-format:"\@"'><img_ src='../images/stops.gif'></td>
+<td  nowrap x:str style='mso-number-format:"\@"'>On</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>PI-100, Lobitos Piura, PER</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>Flotante PN</td>
+<td  nowrap x:str style='mso-number-format:"\@"'><p style="text-align:left;">-4.3236999</p></td>
+<td  nowrap x:str style='mso-number-format:"\@"'><p style="text-align:left;">-81.2891333</p></td>
+<td  nowrap  align=right x:str style='mso-number-format:"\@"'>6.4</td>
+<td  nowrap  align=right x:str style='mso-number-format:"\@"'>6.46</td>
+</tr><tr><td  nowrap x:str style='mso-number-format:"\@"'>(-) MSG_MONTH_3&nbsp;14</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>D.VICTOR</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>14/03/2021 15:13:54</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>14/03/2021 23:59:59</td>
+<td  nowrap  align=right x:str style='mso-number-format:"\@"'>8H 46M</td>
+<td  nowrap x:str style='mso-number-format:"\@"'><img_ src='../images/stops.gif'></td>
+<td  nowrap x:str style='mso-number-format:"\@"'>On</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>PariÐas Talara Piura, Perù</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>PUERTO  TALARA</td>
+<td  nowrap x:str style='mso-number-format:"\@"'><p style="text-align:left;">-4.5638499</p></td>
+<td  nowrap x:str style='mso-number-format:"\@"'><p style="text-align:left;">-81.2885500</p></td>
+<td  nowrap  align=right x:str style='mso-number-format:"\@"'>32.63</td>
+<td  nowrap  align=right x:str style='mso-number-format:"\@"'>35.19</td>
+</tr><tr class=S56TBodyOddRow ><td  nowrap x:str style='mso-number-format:"\@"'>(-) MSG_MONTH_3&nbsp;14</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>DONALD R</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>14/03/2021 00:00:00</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>14/03/2021 00:08:30</td>
+<td  nowrap  align=right x:str style='mso-number-format:"\@"'>9M</td>
+<td  nowrap x:str style='mso-number-format:"\@"'><img_ src='../images/parkingShort.gif'></td>
+<td  nowrap x:str style='mso-number-format:"\@"'>Off</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>Lobitos Piura, PER</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>LO6</td>
+<td  nowrap x:str style='mso-number-format:"\@"'><p style="text-align:left;">-4.4448416</p></td>
+<td  nowrap x:str style='mso-number-format:"\@"'><p style="text-align:left;">-81.3691007</p></td>
+<td  nowrap  align=right x:str style='mso-number-format:"\@"'>0</td>
+<td  nowrap  align=right x:str style='mso-number-format:"\@"'>0.19</td>
+</tr><tr><td  nowrap x:str style='mso-number-format:"\@"'>(-) MSG_MONTH_3&nbsp;14</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>DONALD R</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>14/03/2021 00:14:24</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>14/03/2021 00:21:06</td>
+<td  nowrap  align=right x:str style='mso-number-format:"\@"'>7M</td>
+<td  nowrap x:str style='mso-number-format:"\@"'><img_ src='../images/stops.gif'></td>
+<td  nowrap x:str style='mso-number-format:"\@"'>On</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>Lobitos Piura, PER</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>LO4</td>
+<td  nowrap x:str style='mso-number-format:"\@"'><p style="text-align:left;">-4.4336848</p></td>
+<td  nowrap x:str style='mso-number-format:"\@"'><p style="text-align:left;">-81.3587327</p></td>
+<td  nowrap  align=right x:str style='mso-number-format:"\@"'>1.88</td>
+<td  nowrap  align=right x:str style='mso-number-format:"\@"'>2.09</td>
+</tr><tr class=S56TBodyOddRow ><td  nowrap x:str style='mso-number-format:"\@"'>(-) MSG_MONTH_3&nbsp;14</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>DONALD R</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>14/03/2021 00:53:42</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>14/03/2021 01:35:42</td>
+<td  nowrap  align=right x:str style='mso-number-format:"\@"'>42M</td>
+<td  nowrap x:str style='mso-number-format:"\@"'><img_ src='../images/stops.gif'></td>
+<td  nowrap x:str style='mso-number-format:"\@"'>On</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>Lobitos Talara Piura, Perù</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>LO8</td>
+<td  nowrap x:str style='mso-number-format:"\@"'><p style="text-align:left;">-4.4291391</p></td>
+<td  nowrap x:str style='mso-number-format:"\@"'><p style="text-align:left;">-81.2801022</p></td>
+<td  nowrap  align=right x:str style='mso-number-format:"\@"'>10.75</td>
+<td  nowrap  align=right x:str style='mso-number-format:"\@"'>10.97</td>
+</tr><tr><td  nowrap x:str style='mso-number-format:"\@"'>(-) MSG_MONTH_3&nbsp;14</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>DONALD R</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>14/03/2021 01:42:48</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>14/03/2021 01:47:48</td>
+<td  nowrap  align=right x:str style='mso-number-format:"\@"'>5M</td>
+<td  nowrap x:str style='mso-number-format:"\@"'><img_ src='../images/stops.gif'></td>
+<td  nowrap x:str style='mso-number-format:"\@"'>On</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>Lobitos Piura, PER</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>H</td>
+<td  nowrap x:str style='mso-number-format:"\@"'><p style="text-align:left;">-4.4363375</p></td>
+<td  nowrap x:str style='mso-number-format:"\@"'><p style="text-align:left;">-81.2946560</p></td>
+<td  nowrap  align=right x:str style='mso-number-format:"\@"'>12.56</td>
+<td  nowrap  align=right x:str style='mso-number-format:"\@"'>12.86</td>
+</tr><tr class=S56TBodyOddRow ><td  nowrap x:str style='mso-number-format:"\@"'>(-) MSG_MONTH_3&nbsp;14</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>DONALD R</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>14/03/2021 01:54:33</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>14/03/2021 02:03:03</td>
+<td  nowrap  align=right x:str style='mso-number-format:"\@"'>9M</td>
+<td  nowrap x:str style='mso-number-format:"\@"'><img_ src='../images/stops.gif'></td>
+<td  nowrap x:str style='mso-number-format:"\@"'>On</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>Lobitos Piura, PER</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>LO9</td>
+<td  nowrap x:str style='mso-number-format:"\@"'><p style="text-align:left;">-4.4413776</p></td>
+<td  nowrap x:str style='mso-number-format:"\@"'><p style="text-align:left;">-81.3092606</p></td>
+<td  nowrap  align=right x:str style='mso-number-format:"\@"'>14.39</td>
+<td  nowrap  align=right x:str style='mso-number-format:"\@"'>14.68</td>
+</tr><tr><td  nowrap x:str style='mso-number-format:"\@"'>(-) MSG_MONTH_3&nbsp;14</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>DONALD R</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>14/03/2021 02:07:18</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>14/03/2021 02:23:18</td>
+<td  nowrap  align=right x:str style='mso-number-format:"\@"'>16M</td>
+<td  nowrap x:str style='mso-number-format:"\@"'><img_ src='../images/stops.gif'></td>
+<td  nowrap x:str style='mso-number-format:"\@"'>On</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>Lobitos Piura, PER</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>ZZ</td>
+<td  nowrap x:str style='mso-number-format:"\@"'><p style="text-align:left;">-4.4453455</p></td>
+<td  nowrap x:str style='mso-number-format:"\@"'><p style="text-align:left;">-81.3171454</p></td>
+<td  nowrap  align=right x:str style='mso-number-format:"\@"'>15.64</td>
+<td  nowrap  align=right x:str style='mso-number-format:"\@"'>16.01</td>
+</tr><tr class=S56TBodyOddRow ><td  nowrap x:str style='mso-number-format:"\@"'>(-) MSG_MONTH_3&nbsp;14</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>DONALD R</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>14/03/2021 02:40:21</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>14/03/2021 03:04:39</td>
+<td  nowrap  align=right x:str style='mso-number-format:"\@"'>24M</td>
+<td  nowrap x:str style='mso-number-format:"\@"'><img_ src='../images/stops.gif'></td>
+<td  nowrap x:str style='mso-number-format:"\@"'>On</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>Lobitos Piura, PER</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>LO4</td>
+<td  nowrap x:str style='mso-number-format:"\@"'><p style="text-align:left;">-4.4338480</p></td>
+<td  nowrap x:str style='mso-number-format:"\@"'><p style="text-align:left;">-81.3585278</p></td>
+<td  nowrap  align=right x:str style='mso-number-format:"\@"'>20.57</td>
+<td  nowrap  align=right x:str style='mso-number-format:"\@"'>21.26</td>
+</tr><tr><td  nowrap x:str style='mso-number-format:"\@"'>(-) MSG_MONTH_3&nbsp;14</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>DONALD R</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>14/03/2021 03:21:36</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>14/03/2021 03:34:27</td>
+<td  nowrap  align=right x:str style='mso-number-format:"\@"'>13M</td>
+<td  nowrap x:str style='mso-number-format:"\@"'><img_ src='../images/stops.gif'></td>
+<td  nowrap x:str style='mso-number-format:"\@"'>On</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>Lobitos Piura, PER</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>LO16</td>
+<td  nowrap x:str style='mso-number-format:"\@"'><p style="text-align:left;">-4.4688704</p></td>
+<td  nowrap x:str style='mso-number-format:"\@"'><p style="text-align:left;">-81.3657599</p></td>
+<td  nowrap  align=right x:str style='mso-number-format:"\@"'>24.61</td>
+<td  nowrap  align=right x:str style='mso-number-format:"\@"'>25.75</td>
+</tr><tr class=S56TBodyOddRow ><td  nowrap x:str style='mso-number-format:"\@"'>(-) MSG_MONTH_3&nbsp;14</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>DONALD R</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>14/03/2021 03:43:03</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>14/03/2021 03:55:51</td>
+<td  nowrap  align=right x:str style='mso-number-format:"\@"'>13M</td>
+<td  nowrap x:str style='mso-number-format:"\@"'><img_ src='../images/stops.gif'></td>
+<td  nowrap x:str style='mso-number-format:"\@"'>On</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>Lobitos Piura, PER</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>LO13</td>
+<td  nowrap x:str style='mso-number-format:"\@"'><p style="text-align:left;">-4.4802543</p></td>
+<td  nowrap x:str style='mso-number-format:"\@"'><p style="text-align:left;">-81.3520639</p></td>
+<td  nowrap  align=right x:str style='mso-number-format:"\@"'>27.8</td>
+<td  nowrap  align=right x:str style='mso-number-format:"\@"'>28.09</td>
+</tr><tr><td  nowrap x:str style='mso-number-format:"\@"'>(-) MSG_MONTH_3&nbsp;14</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>DONALD R</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>14/03/2021 04:02:54</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>14/03/2021 04:11:57</td>
+<td  nowrap  align=right x:str style='mso-number-format:"\@"'>9M</td>
+<td  nowrap x:str style='mso-number-format:"\@"'><img_ src='../images/stops.gif'></td>
+<td  nowrap x:str style='mso-number-format:"\@"'>On</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>Lobitos Piura, PER</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>LO10</td>
+<td  nowrap x:str style='mso-number-format:"\@"'><p style="text-align:left;">-4.4649534</p></td>
+<td  nowrap x:str style='mso-number-format:"\@"'><p style="text-align:left;">-81.3498495</p></td>
+<td  nowrap  align=right x:str style='mso-number-format:"\@"'>29.77</td>
+<td  nowrap  align=right x:str style='mso-number-format:"\@"'>29.95</td>
+</tr><tr class=S56TBodyOddRow ><td  nowrap x:str style='mso-number-format:"\@"'>(-) MSG_MONTH_3&nbsp;14</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>DONALD R</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>14/03/2021 04:21:57</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>14/03/2021 05:22:00</td>
+<td  nowrap  align=right x:str style='mso-number-format:"\@"'>1H 0M</td>
+<td  nowrap x:str style='mso-number-format:"\@"'><img_ src='../images/stops.gif'></td>
+<td  nowrap x:str style='mso-number-format:"\@"'>On</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>Lobitos Piura, PER</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>LO6</td>
+<td  nowrap x:str style='mso-number-format:"\@"'><p style="text-align:left;">-4.4452384</p></td>
+<td  nowrap x:str style='mso-number-format:"\@"'><p style="text-align:left;">-81.3695742</p></td>
+<td  nowrap  align=right x:str style='mso-number-format:"\@"'>32.8</td>
+<td  nowrap  align=right x:str style='mso-number-format:"\@"'>33.29</td>
+</tr><tr><td  nowrap x:str style='mso-number-format:"\@"'>(-) MSG_MONTH_3&nbsp;14</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>DONALD R</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>14/03/2021 05:28:27</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>14/03/2021 05:39:48</td>
+<td  nowrap  align=right x:str style='mso-number-format:"\@"'>11M</td>
+<td  nowrap x:str style='mso-number-format:"\@"'><img_ src='../images/stops.gif'></td>
+<td  nowrap x:str style='mso-number-format:"\@"'>On</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>Lobitos Piura, PER</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>LO7</td>
+<td  nowrap x:str style='mso-number-format:"\@"'><p style="text-align:left;">-4.4458095</p></td>
+<td  nowrap x:str style='mso-number-format:"\@"'><p style="text-align:left;">-81.3529855</p></td>
+<td  nowrap  align=right x:str style='mso-number-format:"\@"'>34.91</td>
+<td  nowrap  align=right x:str style='mso-number-format:"\@"'>35.33</td>
+</tr><tr class=S56TBodyOddRow ><td  nowrap x:str style='mso-number-format:"\@"'>(-) MSG_MONTH_3&nbsp;14</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>DONALD R</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>14/03/2021 05:54:00</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>14/03/2021 07:45:12</td>
+<td  nowrap  align=right x:str style='mso-number-format:"\@"'>1H 51M</td>
+<td  nowrap x:str style='mso-number-format:"\@"'><img_ src='../images/stops.gif'></td>
+<td  nowrap x:str style='mso-number-format:"\@"'>On</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>Lobitos Piura, PER</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>Flotante LO</td>
+<td  nowrap x:str style='mso-number-format:"\@"'><p style="text-align:left;">-4.4364895</p></td>
+<td  nowrap x:str style='mso-number-format:"\@"'><p style="text-align:left;">-81.3197566</p></td>
+<td  nowrap  align=right x:str style='mso-number-format:"\@"'>38.88</td>
+<td  nowrap  align=right x:str style='mso-number-format:"\@"'>39.64</td>
+</tr><tr><td  nowrap x:str style='mso-number-format:"\@"'>(-) MSG_MONTH_3&nbsp;14</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>DONALD R</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>14/03/2021 07:53:33</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>14/03/2021 08:02:00</td>
+<td  nowrap  align=right x:str style='mso-number-format:"\@"'>8M</td>
+<td  nowrap x:str style='mso-number-format:"\@"'><img_ src='../images/stops.gif'></td>
+<td  nowrap x:str style='mso-number-format:"\@"'>On</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>Lobitos Piura, PER</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>CC</td>
+<td  nowrap x:str style='mso-number-format:"\@"'><p style="text-align:left;">-4.4368031</p></td>
+<td  nowrap x:str style='mso-number-format:"\@"'><p style="text-align:left;">-81.3418496</p></td>
+<td  nowrap  align=right x:str style='mso-number-format:"\@"'>41.93</td>
+<td  nowrap  align=right x:str style='mso-number-format:"\@"'>42.3</td>
+</tr><tr class=S56TBodyOddRow ><td  nowrap x:str style='mso-number-format:"\@"'>(-) MSG_MONTH_3&nbsp;14</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>DONALD R</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>14/03/2021 08:08:27</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>14/03/2021 08:10:33</td>
+<td  nowrap  align=right x:str style='mso-number-format:"\@"'>2M</td>
+<td  nowrap x:str style='mso-number-format:"\@"'><img_ src='../images/stops.gif'></td>
+<td  nowrap x:str style='mso-number-format:"\@"'>On</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>Lobitos Piura, PER</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>LO4</td>
+<td  nowrap x:str style='mso-number-format:"\@"'><p style="text-align:left;">-4.4333520</p></td>
+<td  nowrap x:str style='mso-number-format:"\@"'><p style="text-align:left;">-81.3586047</p></td>
+<td  nowrap  align=right x:str style='mso-number-format:"\@"'>44.16</td>
+<td  nowrap  align=right x:str style='mso-number-format:"\@"'>44.26</td>
+</tr><tr><td  nowrap x:str style='mso-number-format:"\@"'>(-) MSG_MONTH_3&nbsp;14</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>DONALD R</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>14/03/2021 08:16:57</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>14/03/2021 08:18:24</td>
+<td  nowrap  align=right x:str style='mso-number-format:"\@"'>1M</td>
+<td  nowrap x:str style='mso-number-format:"\@"'><img_ src='../images/stops.gif'></td>
+<td  nowrap x:str style='mso-number-format:"\@"'>On</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>Lobitos Piura, PER</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>LO6</td>
+<td  nowrap x:str style='mso-number-format:"\@"'><p style="text-align:left;">-4.4449215</p></td>
+<td  nowrap x:str style='mso-number-format:"\@"'><p style="text-align:left;">-81.3694078</p></td>
+<td  nowrap  align=right x:str style='mso-number-format:"\@"'>45.97</td>
+<td  nowrap  align=right x:str style='mso-number-format:"\@"'>46.08</td>
+</tr><tr class=S56TBodyOddRow ><td  nowrap x:str style='mso-number-format:"\@"'>(-) MSG_MONTH_3&nbsp;14</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>DONALD R</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>14/03/2021 08:32:57</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>14/03/2021 08:33:54</td>
+<td  nowrap  align=right x:str style='mso-number-format:"\@"'>1M</td>
+<td  nowrap x:str style='mso-number-format:"\@"'><img_ src='../images/stops.gif'></td>
+<td  nowrap x:str style='mso-number-format:"\@"'>On</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>Lobitos Piura, PER</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>CC</td>
+<td  nowrap x:str style='mso-number-format:"\@"'><p style="text-align:left;">-4.4367711</p></td>
+<td  nowrap x:str style='mso-number-format:"\@"'><p style="text-align:left;">-81.3416959</p></td>
+<td  nowrap  align=right x:str style='mso-number-format:"\@"'>49.55</td>
+<td  nowrap  align=right x:str style='mso-number-format:"\@"'>49.7</td>
+</tr><tr><td  nowrap x:str style='mso-number-format:"\@"'>(-) MSG_MONTH_3&nbsp;14</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>DONALD R</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>14/03/2021 08:40:27</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>14/03/2021 08:42:33</td>
+<td  nowrap  align=right x:str style='mso-number-format:"\@"'>2M</td>
+<td  nowrap x:str style='mso-number-format:"\@"'><img_ src='../images/stops.gif'></td>
+<td  nowrap x:str style='mso-number-format:"\@"'>On</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>Lobitos Piura, PER</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>LO4</td>
+<td  nowrap x:str style='mso-number-format:"\@"'><p style="text-align:left;">-4.4333919</p></td>
+<td  nowrap x:str style='mso-number-format:"\@"'><p style="text-align:left;">-81.3586047</p></td>
+<td  nowrap  align=right x:str style='mso-number-format:"\@"'>51.56</td>
+<td  nowrap  align=right x:str style='mso-number-format:"\@"'>51.66</td>
+</tr><tr class=S56TBodyOddRow ><td  nowrap x:str style='mso-number-format:"\@"'>(-) MSG_MONTH_3&nbsp;14</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>DONALD R</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>14/03/2021 08:43:42</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>14/03/2021 08:44:48</td>
+<td  nowrap  align=right x:str style='mso-number-format:"\@"'>1M</td>
+<td  nowrap x:str style='mso-number-format:"\@"'><img_ src='../images/stops.gif'></td>
+<td  nowrap x:str style='mso-number-format:"\@"'>On</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>Lobitos Piura, PER</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>CAMPO  LOBITOS</td>
+<td  nowrap x:str style='mso-number-format:"\@"'><p style="text-align:left;">-4.4296144</p></td>
+<td  nowrap x:str style='mso-number-format:"\@"'><p style="text-align:left;">-81.3597182</p></td>
+<td  nowrap  align=right x:str style='mso-number-format:"\@"'>52.1</td>
+<td  nowrap  align=right x:str style='mso-number-format:"\@"'>52.11</td>
+</tr><tr><td  nowrap x:str style='mso-number-format:"\@"'>(-) MSG_MONTH_3&nbsp;14</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>DONALD R</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>14/03/2021 08:50:03</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>14/03/2021 08:53:12</td>
+<td  nowrap  align=right x:str style='mso-number-format:"\@"'>3M</td>
+<td  nowrap x:str style='mso-number-format:"\@"'><img_ src='../images/stops.gif'></td>
+<td  nowrap x:str style='mso-number-format:"\@"'>On</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>Lobitos Piura, PER</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>LO3</td>
+<td  nowrap x:str style='mso-number-format:"\@"'><p style="text-align:left;">-4.4185407</p></td>
+<td  nowrap x:str style='mso-number-format:"\@"'><p style="text-align:left;">-81.3617792</p></td>
+<td  nowrap  align=right x:str style='mso-number-format:"\@"'>53.2</td>
+<td  nowrap  align=right x:str style='mso-number-format:"\@"'>53.4</td>
+</tr><tr class=S56TBodyOddRow ><td  nowrap x:str style='mso-number-format:"\@"'>(-) MSG_MONTH_3&nbsp;14</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>DONALD R</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>14/03/2021 09:15:36</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>14/03/2021 09:17:42</td>
+<td  nowrap  align=right x:str style='mso-number-format:"\@"'>2M</td>
+<td  nowrap x:str style='mso-number-format:"\@"'><img_ src='../images/stops.gif'></td>
+<td  nowrap x:str style='mso-number-format:"\@"'>On</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>Lobitos Piura, PER</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>ZZ</td>
+<td  nowrap x:str style='mso-number-format:"\@"'><p style="text-align:left;">-4.4459200</p></td>
+<td  nowrap x:str style='mso-number-format:"\@"'><p style="text-align:left;">-81.3171200</p></td>
+<td  nowrap  align=right x:str style='mso-number-format:"\@"'>59.21</td>
+<td  nowrap  align=right x:str style='mso-number-format:"\@"'>59.3</td>
+</tr><tr><td  nowrap x:str style='mso-number-format:"\@"'>(-) MSG_MONTH_3&nbsp;14</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>DONALD R</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>14/03/2021 09:21:57</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>14/03/2021 09:24:06</td>
+<td  nowrap  align=right x:str style='mso-number-format:"\@"'>2M</td>
+<td  nowrap x:str style='mso-number-format:"\@"'><img_ src='../images/stops.gif'></td>
+<td  nowrap x:str style='mso-number-format:"\@"'>On</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>Lobitos Piura, PER</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>LO9</td>
+<td  nowrap x:str style='mso-number-format:"\@"'><p style="text-align:left;">-4.4415648</p></td>
+<td  nowrap x:str style='mso-number-format:"\@"'><p style="text-align:left;">-81.3092479</p></td>
+<td  nowrap  align=right x:str style='mso-number-format:"\@"'>60.26</td>
+<td  nowrap  align=right x:str style='mso-number-format:"\@"'>60.34</td>
+</tr><tr class=S56TBodyOddRow ><td  nowrap x:str style='mso-number-format:"\@"'>(-) MSG_MONTH_3&nbsp;14</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>DONALD R</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>14/03/2021 09:29:30</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>14/03/2021 09:39:12</td>
+<td  nowrap  align=right x:str style='mso-number-format:"\@"'>10M</td>
+<td  nowrap x:str style='mso-number-format:"\@"'><img_ src='../images/stops.gif'></td>
+<td  nowrap x:str style='mso-number-format:"\@"'>On</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>Lobitos Piura, PER</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>Flotante LO</td>
+<td  nowrap x:str style='mso-number-format:"\@"'><p style="text-align:left;">-4.4361663</p></td>
+<td  nowrap x:str style='mso-number-format:"\@"'><p style="text-align:left;">-81.3192576</p></td>
+<td  nowrap  align=right x:str style='mso-number-format:"\@"'>61.57</td>
+<td  nowrap  align=right x:str style='mso-number-format:"\@"'>62.09</td>
+</tr><tr><td  nowrap x:str style='mso-number-format:"\@"'>(-) MSG_MONTH_3&nbsp;14</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>DONALD R</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>14/03/2021 09:52:12</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>14/03/2021 09:53:12</td>
+<td  nowrap  align=right x:str style='mso-number-format:"\@"'>1M</td>
+<td  nowrap x:str style='mso-number-format:"\@"'><img_ src='../images/stops.gif'></td>
+<td  nowrap x:str style='mso-number-format:"\@"'>On</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>Lobitos Piura, PER</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>PP</td>
+<td  nowrap x:str style='mso-number-format:"\@"'><p style="text-align:left;">-4.4682687</p></td>
+<td  nowrap x:str style='mso-number-format:"\@"'><p style="text-align:left;">-81.3202047</p></td>
+<td  nowrap  align=right x:str style='mso-number-format:"\@"'>65.56</td>
+<td  nowrap  align=right x:str style='mso-number-format:"\@"'>65.65</td>
+</tr><tr class=S56TBodyOddRow ><td  nowrap x:str style='mso-number-format:"\@"'>(-) MSG_MONTH_3&nbsp;14</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>DONALD R</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>14/03/2021 10:13:27</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>14/03/2021 10:17:42</td>
+<td  nowrap  align=right x:str style='mso-number-format:"\@"'>4M</td>
+<td  nowrap x:str style='mso-number-format:"\@"'><img_ src='../images/stops.gif'></td>
+<td  nowrap x:str style='mso-number-format:"\@"'>On</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>Lobitos Piura, PER</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>LO6</td>
+<td  nowrap x:str style='mso-number-format:"\@"'><p style="text-align:left;">-4.4448607</p></td>
+<td  nowrap x:str style='mso-number-format:"\@"'><p style="text-align:left;">-81.3691007</p></td>
+<td  nowrap  align=right x:str style='mso-number-format:"\@"'>71.41</td>
+<td  nowrap  align=right x:str style='mso-number-format:"\@"'>71.71</td>
+</tr><tr><td  nowrap x:str style='mso-number-format:"\@"'>(-) MSG_MONTH_3&nbsp;14</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>DONALD R</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>14/03/2021 10:21:57</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>14/03/2021 10:23:03</td>
+<td  nowrap  align=right x:str style='mso-number-format:"\@"'>1M</td>
+<td  nowrap x:str style='mso-number-format:"\@"'><img_ src='../images/stops.gif'></td>
+<td  nowrap x:str style='mso-number-format:"\@"'>On</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>Lobitos Piura, PER</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>CAMPO  LOBITOS</td>
+<td  nowrap x:str style='mso-number-format:"\@"'><p style="text-align:left;">-4.4359071</p></td>
+<td  nowrap x:str style='mso-number-format:"\@"'><p style="text-align:left;">-81.3675774</p></td>
+<td  nowrap  align=right x:str style='mso-number-format:"\@"'>72.51</td>
+<td  nowrap  align=right x:str style='mso-number-format:"\@"'>72.74</td>
+</tr><tr class=S56TBodyOddRow ><td  nowrap x:str style='mso-number-format:"\@"'>(-) MSG_MONTH_3&nbsp;14</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>DONALD R</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>14/03/2021 10:31:42</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>14/03/2021 10:35:54</td>
+<td  nowrap  align=right x:str style='mso-number-format:"\@"'>4M</td>
+<td  nowrap x:str style='mso-number-format:"\@"'><img_ src='../images/stops.gif'></td>
+<td  nowrap x:str style='mso-number-format:"\@"'>On</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>Lobitos Piura, PER</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>LO3</td>
+<td  nowrap x:str style='mso-number-format:"\@"'><p style="text-align:left;">-4.4184767</p></td>
+<td  nowrap x:str style='mso-number-format:"\@"'><p style="text-align:left;">-81.3617279</p></td>
+<td  nowrap  align=right x:str style='mso-number-format:"\@"'>74.62</td>
+<td  nowrap  align=right x:str style='mso-number-format:"\@"'>74.82</td>
+</tr><tr><td  nowrap x:str style='mso-number-format:"\@"'>(-) MSG_MONTH_3&nbsp;14</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>DONALD R</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>14/03/2021 10:57:12</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>14/03/2021 10:58:54</td>
+<td  nowrap  align=right x:str style='mso-number-format:"\@"'>2M</td>
+<td  nowrap x:str style='mso-number-format:"\@"'><img_ src='../images/stops.gif'></td>
+<td  nowrap x:str style='mso-number-format:"\@"'>On</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>Lobitos Piura, PER</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>LO10</td>
+<td  nowrap x:str style='mso-number-format:"\@"'><p style="text-align:left;">-4.4652015</p></td>
+<td  nowrap x:str style='mso-number-format:"\@"'><p style="text-align:left;">-81.3496832</p></td>
+<td  nowrap  align=right x:str style='mso-number-format:"\@"'>80.2</td>
+<td  nowrap  align=right x:str style='mso-number-format:"\@"'>80.36</td>
+</tr><tr class=S56TBodyOddRow ><td  nowrap x:str style='mso-number-format:"\@"'>(-) MSG_MONTH_3&nbsp;14</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>DONALD R</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>14/03/2021 11:13:15</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>14/03/2021 11:15:00</td>
+<td  nowrap  align=right x:str style='mso-number-format:"\@"'>2M</td>
+<td  nowrap x:str style='mso-number-format:"\@"'><img_ src='../images/stops.gif'></td>
+<td  nowrap x:str style='mso-number-format:"\@"'>On</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>Lobitos Piura, PER</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>ZZ</td>
+<td  nowrap x:str style='mso-number-format:"\@"'><p style="text-align:left;">-4.4460559</p></td>
+<td  nowrap x:str style='mso-number-format:"\@"'><p style="text-align:left;">-81.3171327</p></td>
+<td  nowrap  align=right x:str style='mso-number-format:"\@"'>84.44</td>
+<td  nowrap  align=right x:str style='mso-number-format:"\@"'>84.58</td>
+</tr><tr><td  nowrap x:str style='mso-number-format:"\@"'>(-) MSG_MONTH_3&nbsp;14</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>DONALD R</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>14/03/2021 11:28:12</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>14/03/2021 11:31:03</td>
+<td  nowrap  align=right x:str style='mso-number-format:"\@"'>3M</td>
+<td  nowrap x:str style='mso-number-format:"\@"'><img_ src='../images/stops.gif'></td>
+<td  nowrap x:str style='mso-number-format:"\@"'>On</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>Lobitos Piura, PER</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>LO7</td>
+<td  nowrap x:str style='mso-number-format:"\@"'><p style="text-align:left;">-4.4456831</p></td>
+<td  nowrap x:str style='mso-number-format:"\@"'><p style="text-align:left;">-81.3521664</p></td>
+<td  nowrap  align=right x:str style='mso-number-format:"\@"'>88.25</td>
+<td  nowrap  align=right x:str style='mso-number-format:"\@"'>88.52</td>
+</tr><tr class=S56TBodyOddRow ><td  nowrap x:str style='mso-number-format:"\@"'>(-) MSG_MONTH_3&nbsp;14</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>DONALD R</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>14/03/2021 11:37:54</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>14/03/2021 11:42:09</td>
+<td  nowrap  align=right x:str style='mso-number-format:"\@"'>4M</td>
+<td  nowrap x:str style='mso-number-format:"\@"'><img_ src='../images/stops.gif'></td>
+<td  nowrap x:str style='mso-number-format:"\@"'>On</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>Lobitos Piura, PER</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>LO6</td>
+<td  nowrap x:str style='mso-number-format:"\@"'><p style="text-align:left;">-4.4447631</p></td>
+<td  nowrap x:str style='mso-number-format:"\@"'><p style="text-align:left;">-81.3693184</p></td>
+<td  nowrap  align=right x:str style='mso-number-format:"\@"'>90.24</td>
+<td  nowrap  align=right x:str style='mso-number-format:"\@"'>90.51</td>
+</tr><tr><td  nowrap x:str style='mso-number-format:"\@"'>(-) MSG_MONTH_3&nbsp;14</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>DONALD R</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>14/03/2021 11:56:12</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>14/03/2021 11:59:21</td>
+<td  nowrap  align=right x:str style='mso-number-format:"\@"'>3M</td>
+<td  nowrap x:str style='mso-number-format:"\@"'><img_ src='../images/stops.gif'></td>
+<td  nowrap x:str style='mso-number-format:"\@"'>On</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>Lobitos Piura, PER</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>A8</td>
+<td  nowrap x:str style='mso-number-format:"\@"'><p style="text-align:left;">-4.4401839</p></td>
+<td  nowrap x:str style='mso-number-format:"\@"'><p style="text-align:left;">-81.3336704</p></td>
+<td  nowrap  align=right x:str style='mso-number-format:"\@"'>94.44</td>
+<td  nowrap  align=right x:str style='mso-number-format:"\@"'>94.54</td>
+</tr><tr class=S56TBodyOddRow ><td  nowrap x:str style='mso-number-format:"\@"'>(-) MSG_MONTH_3&nbsp;14</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>DONALD R</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>14/03/2021 12:22:21</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>14/03/2021 12:23:09</td>
+<td  nowrap  align=right x:str style='mso-number-format:"\@"'>1M</td>
+<td  nowrap x:str style='mso-number-format:"\@"'><img_ src='../images/stops.gif'></td>
+<td  nowrap x:str style='mso-number-format:"\@"'>On</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>Lobitos Piura, PER</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>ZZ</td>
+<td  nowrap x:str style='mso-number-format:"\@"'><p style="text-align:left;">-4.4458560</p></td>
+<td  nowrap x:str style='mso-number-format:"\@"'><p style="text-align:left;">-81.3171966</p></td>
+<td  nowrap  align=right x:str style='mso-number-format:"\@"'>98.28</td>
+<td  nowrap  align=right x:str style='mso-number-format:"\@"'>98.49</td>
+</tr><tr><td  nowrap x:str style='mso-number-format:"\@"'>(-) MSG_MONTH_3&nbsp;14</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>DONALD R</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>14/03/2021 12:28:51</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>14/03/2021 12:39:33</td>
+<td  nowrap  align=right x:str style='mso-number-format:"\@"'>11M</td>
+<td  nowrap x:str style='mso-number-format:"\@"'><img_ src='../images/stops.gif'></td>
+<td  nowrap x:str style='mso-number-format:"\@"'>On</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>Lobitos Piura, PER</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>CAMPO  LOBITOS</td>
+<td  nowrap x:str style='mso-number-format:"\@"'><p style="text-align:left;">-4.4304095</p></td>
+<td  nowrap x:str style='mso-number-format:"\@"'><p style="text-align:left;">-81.3190144</p></td>
+<td  nowrap  align=right x:str style='mso-number-format:"\@"'>99.96</td>
+<td  nowrap  align=right x:str style='mso-number-format:"\@"'>100.56</td>
+</tr><tr class=S56TBodyOddRow ><td  nowrap x:str style='mso-number-format:"\@"'>(-) MSG_MONTH_3&nbsp;14</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>DONALD R</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>14/03/2021 12:54:54</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>14/03/2021 12:56:45</td>
+<td  nowrap  align=right x:str style='mso-number-format:"\@"'>2M</td>
+<td  nowrap x:str style='mso-number-format:"\@"'><img_ src='../images/stops.gif'></td>
+<td  nowrap x:str style='mso-number-format:"\@"'>On</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>Lobitos Piura, PER</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>LO7</td>
+<td  nowrap x:str style='mso-number-format:"\@"'><p style="text-align:left;">-4.4455504</p></td>
+<td  nowrap x:str style='mso-number-format:"\@"'><p style="text-align:left;">-81.3523071</p></td>
+<td  nowrap  align=right x:str style='mso-number-format:"\@"'>104.53</td>
+<td  nowrap  align=right x:str style='mso-number-format:"\@"'>104.63</td>
+</tr><tr><td  nowrap x:str style='mso-number-format:"\@"'>(-) MSG_MONTH_3&nbsp;14</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>DONALD R</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>14/03/2021 13:03:21</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>14/03/2021 13:04:51</td>
+<td  nowrap  align=right x:str style='mso-number-format:"\@"'>2M</td>
+<td  nowrap x:str style='mso-number-format:"\@"'><img_ src='../images/stops.gif'></td>
+<td  nowrap x:str style='mso-number-format:"\@"'>On</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>Lobitos Piura, PER</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>LO6</td>
+<td  nowrap x:str style='mso-number-format:"\@"'><p style="text-align:left;">-4.4448239</p></td>
+<td  nowrap x:str style='mso-number-format:"\@"'><p style="text-align:left;">-81.3690878</p></td>
+<td  nowrap  align=right x:str style='mso-number-format:"\@"'>106.37</td>
+<td  nowrap  align=right x:str style='mso-number-format:"\@"'>106.59</td>
+</tr><tr class=S56TBodyOddRow ><td  nowrap x:str style='mso-number-format:"\@"'>(-) MSG_MONTH_3&nbsp;14</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>DONALD R</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>14/03/2021 13:14:15</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>14/03/2021 13:15:42</td>
+<td  nowrap  align=right x:str style='mso-number-format:"\@"'>1M</td>
+<td  nowrap x:str style='mso-number-format:"\@"'><img_ src='../images/stops.gif'></td>
+<td  nowrap x:str style='mso-number-format:"\@"'>On</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>Lobitos Piura, PER</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>LO3</td>
+<td  nowrap x:str style='mso-number-format:"\@"'><p style="text-align:left;">-4.4185663</p></td>
+<td  nowrap x:str style='mso-number-format:"\@"'><p style="text-align:left;">-81.3617662</p></td>
+<td  nowrap  align=right x:str style='mso-number-format:"\@"'>109.33</td>
+<td  nowrap  align=right x:str style='mso-number-format:"\@"'>109.64</td>
+</tr><tr><td  nowrap x:str style='mso-number-format:"\@"'>(-) MSG_MONTH_3&nbsp;14</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>DONALD R</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>14/03/2021 13:45:51</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>14/03/2021 13:49:57</td>
+<td  nowrap  align=right x:str style='mso-number-format:"\@"'>4M</td>
+<td  nowrap x:str style='mso-number-format:"\@"'><img_ src='../images/stops.gif'></td>
+<td  nowrap x:str style='mso-number-format:"\@"'>On</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>Lobitos Talara Piura, Perù</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>LO8</td>
+<td  nowrap x:str style='mso-number-format:"\@"'><p style="text-align:left;">-4.4294848</p></td>
+<td  nowrap x:str style='mso-number-format:"\@"'><p style="text-align:left;">-81.2807808</p></td>
+<td  nowrap  align=right x:str style='mso-number-format:"\@"'>118.44</td>
+<td  nowrap  align=right x:str style='mso-number-format:"\@"'>118.83</td>
+</tr><tr class=S56TBodyOddRow ><td  nowrap x:str style='mso-number-format:"\@"'>(-) MSG_MONTH_3&nbsp;14</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>DONALD R</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>14/03/2021 13:56:48</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>14/03/2021 15:30:09</td>
+<td  nowrap  align=right x:str style='mso-number-format:"\@"'>1H 33M</td>
+<td  nowrap x:str style='mso-number-format:"\@"'><img_ src='../images/stops.gif'></td>
+<td  nowrap x:str style='mso-number-format:"\@"'>On</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>Lobitos Piura, PER</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>H</td>
+<td  nowrap x:str style='mso-number-format:"\@"'><p style="text-align:left;">-4.4367215</p></td>
+<td  nowrap x:str style='mso-number-format:"\@"'><p style="text-align:left;">-81.2945792</p></td>
+<td  nowrap  align=right x:str style='mso-number-format:"\@"'>120.55</td>
+<td  nowrap  align=right x:str style='mso-number-format:"\@"'>120.86</td>
+</tr><tr><td  nowrap x:str style='mso-number-format:"\@"'>(-) MSG_MONTH_3&nbsp;14</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>DONALD R</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>14/03/2021 15:57:12</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>14/03/2021 15:59:36</td>
+<td  nowrap  align=right x:str style='mso-number-format:"\@"'>2M</td>
+<td  nowrap x:str style='mso-number-format:"\@"'><img_ src='../images/stops.gif'></td>
+<td  nowrap x:str style='mso-number-format:"\@"'>On</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>Lobitos Piura, PER</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>LO10</td>
+<td  nowrap x:str style='mso-number-format:"\@"'><p style="text-align:left;">-4.4650447</p></td>
+<td  nowrap x:str style='mso-number-format:"\@"'><p style="text-align:left;">-81.3495934</p></td>
+<td  nowrap  align=right x:str style='mso-number-format:"\@"'>126.24</td>
+<td  nowrap  align=right x:str style='mso-number-format:"\@"'>127.91</td>
+</tr><tr class=S56TBodyOddRow ><td  nowrap x:str style='mso-number-format:"\@"'>(-) MSG_MONTH_3&nbsp;14</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>DONALD R</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>14/03/2021 16:36:39</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>14/03/2021 16:39:18</td>
+<td  nowrap  align=right x:str style='mso-number-format:"\@"'>3M</td>
+<td  nowrap x:str style='mso-number-format:"\@"'><img_ src='../images/stops.gif'></td>
+<td  nowrap x:str style='mso-number-format:"\@"'>On</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>Lobitos Piura, PER</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>LO7</td>
+<td  nowrap x:str style='mso-number-format:"\@"'><p style="text-align:left;">-4.4455439</p></td>
+<td  nowrap x:str style='mso-number-format:"\@"'><p style="text-align:left;">-81.3524096</p></td>
+<td  nowrap  align=right x:str style='mso-number-format:"\@"'>137.79</td>
+<td  nowrap  align=right x:str style='mso-number-format:"\@"'>137.92</td>
+</tr><tr><td  nowrap x:str style='mso-number-format:"\@"'>(-) MSG_MONTH_3&nbsp;14</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>DONALD R</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>14/03/2021 16:44:12</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>14/03/2021 16:49:21</td>
+<td  nowrap  align=right x:str style='mso-number-format:"\@"'>5M</td>
+<td  nowrap x:str style='mso-number-format:"\@"'><img_ src='../images/stops.gif'></td>
+<td  nowrap x:str style='mso-number-format:"\@"'>On</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>Lobitos Piura, PER</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>LO4</td>
+<td  nowrap x:str style='mso-number-format:"\@"'><p style="text-align:left;">-4.4337887</p></td>
+<td  nowrap x:str style='mso-number-format:"\@"'><p style="text-align:left;">-81.3584639</p></td>
+<td  nowrap  align=right x:str style='mso-number-format:"\@"'>139.13</td>
+<td  nowrap  align=right x:str style='mso-number-format:"\@"'>139.49</td>
+</tr><tr class=S56TBodyOddRow ><td  nowrap x:str style='mso-number-format:"\@"'>(-) MSG_MONTH_3&nbsp;14</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>DONALD R</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>14/03/2021 16:54:30</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>14/03/2021 16:57:21</td>
+<td  nowrap  align=right x:str style='mso-number-format:"\@"'>3M</td>
+<td  nowrap x:str style='mso-number-format:"\@"'><img_ src='../images/stops.gif'></td>
+<td  nowrap x:str style='mso-number-format:"\@"'>On</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>Lobitos Piura, PER</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>LO3</td>
+<td  nowrap x:str style='mso-number-format:"\@"'><p style="text-align:left;">-4.4185584</p></td>
+<td  nowrap x:str style='mso-number-format:"\@"'><p style="text-align:left;">-81.3618560</p></td>
+<td  nowrap  align=right x:str style='mso-number-format:"\@"'>140.92</td>
+<td  nowrap  align=right x:str style='mso-number-format:"\@"'>141.22</td>
+</tr><tr><td  nowrap x:str style='mso-number-format:"\@"'>(-) MSG_MONTH_3&nbsp;14</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>DONALD R</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>14/03/2021 17:10:09</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>14/03/2021 17:11:42</td>
+<td  nowrap  align=right x:str style='mso-number-format:"\@"'>2M</td>
+<td  nowrap x:str style='mso-number-format:"\@"'><img_ src='../images/stops.gif'></td>
+<td  nowrap x:str style='mso-number-format:"\@"'>On</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>Lobitos Piura, PER</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>LO6</td>
+<td  nowrap x:str style='mso-number-format:"\@"'><p style="text-align:left;">-4.4448751</p></td>
+<td  nowrap x:str style='mso-number-format:"\@"'><p style="text-align:left;">-81.3691646</p></td>
+<td  nowrap  align=right x:str style='mso-number-format:"\@"'>144.1</td>
+<td  nowrap  align=right x:str style='mso-number-format:"\@"'>144.33</td>
+</tr><tr class=S56TBodyOddRow ><td  nowrap x:str style='mso-number-format:"\@"'>(-) MSG_MONTH_3&nbsp;14</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>DONALD R</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>14/03/2021 17:18:57</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>14/03/2021 17:23:24</td>
+<td  nowrap  align=right x:str style='mso-number-format:"\@"'>4M</td>
+<td  nowrap x:str style='mso-number-format:"\@"'><img_ src='../images/stops.gif'></td>
+<td  nowrap x:str style='mso-number-format:"\@"'>On</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>Lobitos Piura, PER</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>LO7</td>
+<td  nowrap x:str style='mso-number-format:"\@"'><p style="text-align:left;">-4.4456112</p></td>
+<td  nowrap x:str style='mso-number-format:"\@"'><p style="text-align:left;">-81.3521791</p></td>
+<td  nowrap  align=right x:str style='mso-number-format:"\@"'>146.07</td>
+<td  nowrap  align=right x:str style='mso-number-format:"\@"'>146.3</td>
+</tr><tr><td  nowrap x:str style='mso-number-format:"\@"'>(-) MSG_MONTH_3&nbsp;14</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>DONALD R</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>14/03/2021 17:39:42</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>14/03/2021 17:43:36</td>
+<td  nowrap  align=right x:str style='mso-number-format:"\@"'>4M</td>
+<td  nowrap x:str style='mso-number-format:"\@"'><img_ src='../images/stops.gif'></td>
+<td  nowrap x:str style='mso-number-format:"\@"'>On</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>Lobitos Piura, PER</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>LO9</td>
+<td  nowrap x:str style='mso-number-format:"\@"'><p style="text-align:left;">-4.4415392</p></td>
+<td  nowrap x:str style='mso-number-format:"\@"'><p style="text-align:left;">-81.3093503</p></td>
+<td  nowrap  align=right x:str style='mso-number-format:"\@"'>150.89</td>
+<td  nowrap  align=right x:str style='mso-number-format:"\@"'>151.14</td>
+</tr><tr class=S56TBodyOddRow ><td  nowrap x:str style='mso-number-format:"\@"'>(-) MSG_MONTH_3&nbsp;14</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>DONALD R</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>14/03/2021 17:48:15</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>14/03/2021 18:28:48</td>
+<td  nowrap  align=right x:str style='mso-number-format:"\@"'>41M</td>
+<td  nowrap x:str style='mso-number-format:"\@"'><img_ src='../images/stops.gif'></td>
+<td  nowrap x:str style='mso-number-format:"\@"'>On</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>Lobitos Piura, PER</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>Flotante LO</td>
+<td  nowrap x:str style='mso-number-format:"\@"'><p style="text-align:left;">-4.4365439</p></td>
+<td  nowrap x:str style='mso-number-format:"\@"'><p style="text-align:left;">-81.3193727</p></td>
+<td  nowrap  align=right x:str style='mso-number-format:"\@"'>152.14</td>
+<td  nowrap  align=right x:str style='mso-number-format:"\@"'>153.35</td>
+</tr><tr><td  nowrap x:str style='mso-number-format:"\@"'>(-) MSG_MONTH_3&nbsp;14</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>DONALD R</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>14/03/2021 18:33:21</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>14/03/2021 18:44:03</td>
+<td  nowrap  align=right x:str style='mso-number-format:"\@"'>11M</td>
+<td  nowrap x:str style='mso-number-format:"\@"'><img_ src='../images/stops.gif'></td>
+<td  nowrap x:str style='mso-number-format:"\@"'>On</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>Lobitos Piura, PER</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>LO9</td>
+<td  nowrap x:str style='mso-number-format:"\@"'><p style="text-align:left;">-4.4413440</p></td>
+<td  nowrap x:str style='mso-number-format:"\@"'><p style="text-align:left;">-81.3098494</p></td>
+<td  nowrap  align=right x:str style='mso-number-format:"\@"'>154.36</td>
+<td  nowrap  align=right x:str style='mso-number-format:"\@"'>154.73</td>
+</tr><tr class=S56TBodyOddRow ><td  nowrap x:str style='mso-number-format:"\@"'>(-) MSG_MONTH_3&nbsp;14</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>DONALD R</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>14/03/2021 18:48:21</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>14/03/2021 19:59:54</td>
+<td  nowrap  align=right x:str style='mso-number-format:"\@"'>1H 12M</td>
+<td  nowrap x:str style='mso-number-format:"\@"'><img_ src='../images/stops.gif'></td>
+<td  nowrap x:str style='mso-number-format:"\@"'>On</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>Lobitos Piura, PER</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>Flotante LO</td>
+<td  nowrap x:str style='mso-number-format:"\@"'><p style="text-align:left;">-4.4366735</p></td>
+<td  nowrap x:str style='mso-number-format:"\@"'><p style="text-align:left;">-81.3194110</p></td>
+<td  nowrap  align=right x:str style='mso-number-format:"\@"'>155.73</td>
+<td  nowrap  align=right x:str style='mso-number-format:"\@"'>156.27</td>
+</tr><tr><td  nowrap x:str style='mso-number-format:"\@"'>(-) MSG_MONTH_3&nbsp;14</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>DONALD R</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>14/03/2021 20:06:15</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>14/03/2021 20:13:45</td>
+<td  nowrap  align=right x:str style='mso-number-format:"\@"'>8M</td>
+<td  nowrap x:str style='mso-number-format:"\@"'><img_ src='../images/stops.gif'></td>
+<td  nowrap x:str style='mso-number-format:"\@"'>On</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>Lobitos Piura, PER</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>A8</td>
+<td  nowrap x:str style='mso-number-format:"\@"'><p style="text-align:left;">-4.4394000</p></td>
+<td  nowrap x:str style='mso-number-format:"\@"'><p style="text-align:left;">-81.3335806</p></td>
+<td  nowrap  align=right x:str style='mso-number-format:"\@"'>157.68</td>
+<td  nowrap  align=right x:str style='mso-number-format:"\@"'>158.03</td>
+</tr><tr class=S56TBodyOddRow ><td  nowrap x:str style='mso-number-format:"\@"'>(-) MSG_MONTH_3&nbsp;14</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>DONALD R</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>14/03/2021 20:28:39</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>14/03/2021 20:51:36</td>
+<td  nowrap  align=right x:str style='mso-number-format:"\@"'>23M</td>
+<td  nowrap x:str style='mso-number-format:"\@"'><img_ src='../images/stops.gif'></td>
+<td  nowrap x:str style='mso-number-format:"\@"'>On</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>Lobitos Piura, PER</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>LO6</td>
+<td  nowrap x:str style='mso-number-format:"\@"'><p style="text-align:left;">-4.4444223</p></td>
+<td  nowrap x:str style='mso-number-format:"\@"'><p style="text-align:left;">-81.3693566</p></td>
+<td  nowrap  align=right x:str style='mso-number-format:"\@"'>161.88</td>
+<td  nowrap  align=right x:str style='mso-number-format:"\@"'>162.28</td>
+</tr><tr><td  nowrap x:str style='mso-number-format:"\@"'>(-) MSG_MONTH_3&nbsp;14</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>DONALD R</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>14/03/2021 21:11:21</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>14/03/2021 21:22:54</td>
+<td  nowrap  align=right x:str style='mso-number-format:"\@"'>12M</td>
+<td  nowrap x:str style='mso-number-format:"\@"'><img_ src='../images/stops.gif'></td>
+<td  nowrap x:str style='mso-number-format:"\@"'>On</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>Lobitos Piura, PER</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>Flotante LO</td>
+<td  nowrap x:str style='mso-number-format:"\@"'><p style="text-align:left;">-4.4361119</p></td>
+<td  nowrap x:str style='mso-number-format:"\@"'><p style="text-align:left;">-81.3192063</p></td>
+<td  nowrap  align=right x:str style='mso-number-format:"\@"'>167.86</td>
+<td  nowrap  align=right x:str style='mso-number-format:"\@"'>168.04</td>
+</tr><tr class=S56TBodyOddRow ><td  nowrap x:str style='mso-number-format:"\@"'>(-) MSG_MONTH_3&nbsp;14</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>DONALD R</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>14/03/2021 21:41:57</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>14/03/2021 23:59:59</td>
+<td  nowrap  align=right x:str style='mso-number-format:"\@"'>2H 18M</td>
+<td  nowrap x:str style='mso-number-format:"\@"'><img_ src='../images/stops.gif'></td>
+<td  nowrap x:str style='mso-number-format:"\@"'>On</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>Lobitos Piura, PER</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>LO6</td>
+<td  nowrap x:str style='mso-number-format:"\@"'><p style="text-align:left;">-4.4448831</p></td>
+<td  nowrap x:str style='mso-number-format:"\@"'><p style="text-align:left;">-81.3693822</p></td>
+<td  nowrap  align=right x:str style='mso-number-format:"\@"'>173.79</td>
+<td  nowrap  align=right x:str style='mso-number-format:"\@"'>173.92</td>
+</tr><tr><td  nowrap x:str style='mso-number-format:"\@"'>(-) MSG_MONTH_3&nbsp;14</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>ELIZABET</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>14/03/2021 00:00:03</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>14/03/2021 13:10:09</td>
+<td  nowrap  align=right x:str style='mso-number-format:"\@"'>13H 10M</td>
+<td  nowrap x:str style='mso-number-format:"\@"'><img_ src='../images/parking.gif'></td>
+<td  nowrap x:str style='mso-number-format:"\@"'>Off</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>PI-100, Lobitos Piura, PER</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>CAMPO PEA NEGRA</td>
+<td  nowrap x:str style='mso-number-format:"\@"'><p style="text-align:left;">-4.3219199</p></td>
+<td  nowrap x:str style='mso-number-format:"\@"'><p style="text-align:left;">-81.2843249</p></td>
+<td  nowrap  align=right x:str style='mso-number-format:"\@"'>0</td>
+<td  nowrap  align=right x:str style='mso-number-format:"\@"'>7.54</td>
+</tr><tr class=S56TBodyOddRow ><td  nowrap x:str style='mso-number-format:"\@"'>(-) MSG_MONTH_3&nbsp;14</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>ELIZABET</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>14/03/2021 13:10:48</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>14/03/2021 23:59:59</td>
+<td  nowrap  align=right x:str style='mso-number-format:"\@"'>10H 49M</td>
+<td  nowrap x:str style='mso-number-format:"\@"'><img_ src='../images/stops.gif'></td>
+<td  nowrap x:str style='mso-number-format:"\@"'>On</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>PI-100, Lobitos Piura, PER</td>
+<td  nowrap x:str style='mso-number-format:"\@"'>Flotante PN</td>
+<td  nowrap x:str style='mso-number-format:"\@"'><p style="text-align:left;">-4.3238319</p></td>
+<td  nowrap x:str style='mso-number-format:"\@"'><p style="text-align:left;">-81.2891647</p></td>
+<td  nowrap  align=right x:str style='mso-number-format:"\@"'>7.55</td>
+<td  nowrap  align=right x:str style='mso-number-format:"\@"'>13.63</td>
+</tr></tbody></table></TD></TR></TABLE></div></form></div>
+        </body>
+        </html>
+	
